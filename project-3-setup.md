@@ -13,25 +13,29 @@
 - Our event rating scale
 - Ways to be able to resocialize - meditating, etc.
 - Users will be able to match with friends to go to events too based on their profiles
+- Be able to add a city that is not on the four cities that were predefined 
+- Being able to leave a comment under an event 
+- Events dissapear or go into your past events after they have already happened 
 
 ## UX Walkthrough 
 1. User logs in or is able to create an account 
   - If user needs to create an account: 
-    1. First be able to pick whether or not they want to attend either virtual or inperson events 
+    1. First be able to pick whether or not they want to attend either virtual or inperson events or be able to add if you don't mind either 
     2. User will be able to create an account 
     3. User will be able to put all of their socializing preference based on vaccination status and comfortability 
   - If user already has an account: 
     1. They will be able to see their settings 
     2. They will be able to update their preferences
     3. They will be able delete their entire profile 
-2. Once the user is logged in, they will be able to see their cities, groups (defined strictly by interests), and interests
+2. Once the user is logged in, they will be able to see their city (be able to view other cities), groups (defined strictly by interests), and interests
 3. Once the user selects a city they can see events based off of their interests
   - They will be able to: 
-  * Userser will not be able to edit or delete an event they didn't create 
+  * User will not be able to edit or delete an event they didn't create 
     1. See all of the events and all of the events they've created (this will be shown first)
     2. Add an event to their city 
     3. Update one of their events 
     4. Delete one of their events 
+    5. Favorite Events 
 4. User will be able to filter out events based on our rating scale of comfortability, which can be found on the about page 
 5. User will be added to groups based off of the predefined interests they've selected 
 6. Once a user has visited their group they will be able to: 
@@ -43,25 +47,45 @@
 
 ## Frontend
 - Components 
-  - Navbar
-  - Footer 
-  - User 
-    - Login 
-    - Create an account 
-      - Select virtual or online 
-      - Info component
-    - User settings with CRUDability 
-  - Cities page component 
-  - Event Component 
+  - Navbar - Lindsey 
+  - Footer - Lindsey 
+  - User - Whole Group 
+    - Login / Create an account / profile
+      - Create an account 
+        - Select virtual or online 
+        - Get info / form 
+      - User settings with CRUDability 
+    - User Display 
+      * Like the first 5 cards, show events in their area based off of their interests and then anything after that is just based on city 
+  - Event Component - Asif & Chloe
     - Event CRUDability 
-  - Group 
+      - Create 
+      - Read 
+      - Update 
+      - Delete 
+  - Group - Kirsten & Lindsey 
     - Group CRUDability 
-  - Resources 
-  - About 
-    - Comfortability Scale 
+      - Create 
+      - Read 
+      - Update 
+      - Delete 
+  - Resources - Chloe 
+    * This will include resources to learning how to resocialize, etc. 
+  - About - Asif & Kirsten 
+    - Comfortability Scale - Emoji based 
+  - Design - Lindsey 
 
 ## Backend 
 - Models 
-  - User 
-  - Group
-  - Event
+  - User - Whole Group 
+  - Group - Kirsten & Lindsey 
+  - Event - Asif & Chloe 
+
+## Code Review Days 
+- Saturday, July 24, 2021 - Afternoon (after lunch)
+- Monday, July 26, 2021 
+- Wednesday, July 28, 2021 
+- Saturday, July 31, 2021 & Heroku Deployment
+
+## Project Completion 
+- Deployed and ready to complete - August 1, 2021 (but really we know it's the 2nd)
