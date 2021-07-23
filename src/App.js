@@ -1,19 +1,19 @@
 import './App.css';
-import EventForm from './components/EventForm';
-import { Route, Link } from 'react-router-dom';
+import EventForm from './components/events/EventForm.jsx';
+import { Route, Link } from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
       <Link to='/events/add'>
-        <button>Add Event</button>
+        <h1>click</h1>
       </Link>
       <main>
-
-      <Route path='/events/add' 
-        component={EventForm} />
-      </main>
-    </div>
+        <Route path='/events/add'
+        component={EventForm}/>
+        </main>    
+        </div>
   );
 }
 
