@@ -6,7 +6,7 @@ import DeleteMessage from './DeleteMessage'
 const Group = () => {
 
     const dummyGroupPosts =[
-        {id: 1,message: "hey group"},
+        {id: 1, message: "hey group"},
         {id: 2, message: "Chase please stop screaming"},
         {id: 3, message: "My food is almost here"},
         {id: 4, message: "Asif said we are motivating"},
@@ -22,6 +22,21 @@ const Group = () => {
         setData(dataTwo)
     }
 
+    const initialState = {message: ""}
+    const [formState, setFormState] = useState(initialState)
+
+    const handleUpdate = (event) => {
+        event.preventDefault()
+        setFormState({...formState, [event.target.id] : event.target.value})
+        
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        setFormState(formState)
+        console.log(formState)
+    }
+
     return (
         <div>
             <h1>Single Group Component</h1>
@@ -30,12 +45,12 @@ const Group = () => {
                 data.map((post) => (
                     <div key={post.id} className="post">
                         <p>{post.message}</p>
+                        <UpdateMessage handleSubmit={handleSubmit} handleUpdate={handleUpdate} formState={formState} />
                         <DeleteMessage post={post} deletePost={deletePost} />
                     </div>
                 )) 
             }
             <AddMessage />
-            <UpdateMessage />
             
         </div>
     )

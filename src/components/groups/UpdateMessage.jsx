@@ -1,13 +1,13 @@
 import React from 'react'
 
-const UpdateMessage = () => {
+const UpdateMessage = ({handleSubmit, handleUpdate, formState}) => {
+
     return (
         <div>
-            <h1>Update Message Here</h1>
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit} >
                 <div className="form-group">
                 <label htmlFor="message">Update: </label>
-                <textarea id="message" cols="30" rows="10" placeholder="Update Message Here"></textarea>
+                <textarea id="message" cols="30" rows="5" value={formState.message} onChange={handleUpdate}></textarea>
                 </div>
                 <div className="form-group">
                     <input type="submit" value="Update" />
