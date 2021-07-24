@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import AddMessage from './AddMessage'
 import UpdateMessage from './UpdateMessage'
 import DeleteMessage from './DeleteMessage'
@@ -13,9 +13,13 @@ const Group = () => {
         {id: 5, message: "we are friends"}
     ]
 
-    const deletePost = (event, id) => {
-        event.preventDefault()
-        console.log(`delete: ${id}`)
+    const [data, setData] = useState(dummyGroupPosts)
+    console.log(data)
+
+    const deletePost = (dataId) => {
+        // console.log(`delete: ${data.id}`)
+        const dataTwo = data.filter((d) => d !== dataId)
+        setData(dataTwo)
     }
 
     return (
@@ -23,10 +27,10 @@ const Group = () => {
             <h1>Single Group Component</h1>
             <p>On this page, users will be able to see a specific group, see, add, update and delete messages</p>
             {
-                dummyGroupPosts.map((post) => (
+                data.map((post) => (
                     <div key={post.id} className="post">
                         <p>{post.message}</p>
-                        <DeleteMessage id={post.id} deletePost={deletePost} />
+                        <DeleteMessage post={post} deletePost={deletePost} />
                     </div>
                 )) 
             }
