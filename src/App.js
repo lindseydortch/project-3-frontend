@@ -1,18 +1,22 @@
 import './App.css';
 import EventForm from './components/events/EventForm.jsx';
 import { Route, Link } from "react-router-dom";
+import Groups from './components/groups/Groups';
+import Group from './components/groups/Group';
 
 
 function App() {
   return (
     <div className="App">
       <Link to='/events/add'>
-        <h1>click</h1>
+        <h1>Add Event</h1>
       </Link>
       <main>
-        <Route path='/events/add'
+        <Route exact path='/events/add'
         component={EventForm}/>
-        </main>    
+        <Route exact path='/groups' component={Groups} />
+        <Route exact path='/group' component={Group} />
+      </main>    
         </div>
   );
 }
