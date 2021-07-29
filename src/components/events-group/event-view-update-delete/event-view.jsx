@@ -1,13 +1,36 @@
+import axios from 'axios';
 import React from 'react'
-import './event-view.styles.scss'
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
-// this is the indiv view of the event
 
-function EventView() {
+const EventView = ({match, eventView, setEventView}) => {
+    useEffect(() => {
+          const id = match.params.id;
+          const url = `http://localhost:4000/events/${id}`
+          axios.get(url)
+          .then((res) => {
+            const data = res.data;
+            setEventView(data)
+            console.log('data has been received')
+          })
+          .catch(() => {
+            console.log('error retreiving data')
+          })
+      },[])
+      function deleteEvent() {
+          const id = match.params.id;
+          const url = `http://localhost:4000/events/${id}`
+          axios.delete(url)
+        }
+  
     return (
         <div>
-            <h1>Event View Shows Up Here</h1>
+            <h1>{eventView.name}</h1>
+            <Link to={"/events/edit/" + eventView._id }>UPDATE</Link>
+            <Link to={"/events"} onClick={deleteEvent}>DELETE</Link>
         </div>
+    
     )
 }
 
