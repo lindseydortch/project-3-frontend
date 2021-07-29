@@ -23,7 +23,7 @@ const Group = () => {
       body: JSON.stringify(id)
     })
     .then(res => res.json())
-    .then(res => console.log(res))
+    // .then(res => console.log(res))
     .then(() => fetch(`http://localhost:8000/group`).then(res => res.json()).then(res => setMessages(res)))
     }
 
@@ -36,7 +36,7 @@ const Group = () => {
                     <div key={post._id} className="post">
                         <p>{post.message}</p>
                         <UpdateMessage messages={messages} post={post} setMessages={setMessages} />
-                        <Likes likes={post.likes}/>
+                        <Likes post={post}/>
                         <DeleteMessage post={post} deletePost={deletePost} />
                     </div>
                 )) 
