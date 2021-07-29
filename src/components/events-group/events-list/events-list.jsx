@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./events-list.styles.scss";
 import axios from "axios";
 
-// this should show all of the event's currently availble. later we can seperate it to each city
-// we're going to work with axios to pull the json we have available to us here and display text/data
+// here we will filter then pass data into each city that they can choose from.
 
 function EventsList(props) {
   useEffect(() => {
@@ -39,12 +38,9 @@ function EventsList(props) {
             {/* <h2>{event.type}</h2> */}
             <h3>{event.location}</h3>
             <h3>{event.user}</h3>
-            {/* <h3>{event.inPerson}</h3>
-              <h3>{event.online}</h3>
-              <p>{event.description}</p> */}
           </div>
         ))}
-        {/* <EventDeets eventData={eventData} getEvent={getOneEvent}/> */}
+
       </section>
     </div>
   );

@@ -13,6 +13,9 @@ function Header() {
         <Link className="option" to="/events">
           EVENTS
         </Link>
+        <Link className="option" to="/groups">
+          GROUPS
+        </Link>
         <Link className="option" to="/signin">
           SIGN IN
         </Link>
