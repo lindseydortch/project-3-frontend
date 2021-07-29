@@ -1,56 +1,48 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import AddMessage from './AddMessage'
 import UpdateMessage from './UpdateMessage'
 import DeleteMessage from './DeleteMessage'
+import Likes from './Likes'
 
 const Group = () => {
 
-    const dummyGroupPosts =[
-        {id: 1, message: "hey group"},
-        {id: 2, message: "Chase please stop screaming"},
-        {id: 3, message: "My food is almost here"},
-        {id: 4, message: "Asif said we are motivating"},
-        {id: 5, message: "we are friends"}
-    ]
+    const [messages, setMessages] = useState()
 
-    const [data, setData] = useState(dummyGroupPosts)
-    console.log(data)
+    useEffect(() => {
+        fetch(`http://localhost:8000/group`)
+        .then(res => res.json())
+        .then(messages => setMessages(messages))
+      }, []) 
 
-    const deletePost = (dataId) => {
-        // console.log(`delete: ${data.id}`)
-        const dataTwo = data.filter((d) => d !== dataId)
-        setData(dataTwo)
-    }
-
-    const initialState = {message: ""}
-    const [formState, setFormState] = useState(initialState)
-
-    const handleUpdate = (event) => {
-        event.preventDefault()
-        setFormState({...formState, [event.target.id] : event.target.value})
-        
-    }
-
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        setFormState(formState)
-        console.log(formState)
+    const deletePost = (id) => {
+        fetch(`http://localhost:8000/group`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(id)
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
+    .then(() => fetch(`http://localhost:8000/group`).then(res => res.json()).then(res => setMessages(res)))
     }
 
     return (
         <div>
             <h1>Single Group Component</h1>
             <p>On this page, users will be able to see a specific group, see, add, update and delete messages</p>
-            {
-                data.map((post) => (
-                    <div key={post.id} className="post">
+            { messages ?
+                messages.map((post) => (
+                    <div key={post._id} className="post">
                         <p>{post.message}</p>
-                        <UpdateMessage handleSubmit={handleSubmit} handleUpdate={handleUpdate} formState={formState} />
+                        <UpdateMessage messages={messages} post={post} setMessages={setMessages} />
+                        <Likes likes={post.likes}/>
                         <DeleteMessage post={post} deletePost={deletePost} />
                     </div>
                 )) 
+                : ``
             }
-            <AddMessage />
+            <AddMessage messages={messages} setMessages={setMessages} />
             
         </div>
     )
