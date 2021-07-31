@@ -1,7 +1,9 @@
-import "./App.css";
+import './App.css';
+import EventForm from './components/events/EventForm.jsx';
 import Header from "./components/header/header";
-
-import { Route, Switch } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
+import Groups from './components/groups/Groups';
+import Group from './components/groups/Group';
 
 import SignInSignUp from "./pages/sign-in-sign-up/sign-in-sign-up";
 import GroupsHomePage from "./pages/groupsHomePage/groups-homepage";
@@ -16,8 +18,12 @@ function App() {
   const [eventView, setEventView] = useState([]);
 
   return (
+
     <div>
       <Header />
+    <Link to='/events/add'>
+        Add Event
+      </Link>
       <Route path="/events" component={CityDirectory} />
       <Route
         exact
@@ -51,6 +57,10 @@ function App() {
         {/* <Route exact path="/event/:id" component={EventView} /> */}
         <Route path="/groups" component={GroupsHomePage} />
         <Route path="/signin" component={SignInSignUp} />
+          <Route exact path='/events/add'
+        component={EventForm}/>
+        <Route exact path='/groups' component={Groups} />
+        <Route exact path='/group' component={Group} />
 
     </div>
   );
