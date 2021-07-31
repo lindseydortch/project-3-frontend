@@ -89,3 +89,8 @@
 
 ## Project Completion 
 - Deployed and ready to complete - August 1, 2021 (but really we know it's the 2nd)
+
+## Bugs and Performance Issues 
+- When adding an event, the date is not pulling through, EventUpdateForm and EventForm, not showing on confirmation page or backend 
+  - Change from React date picker to regular HTML picker 
+✅ Cannot update event description and event name - value is there, but cannot remove anything
