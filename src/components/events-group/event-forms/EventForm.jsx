@@ -32,8 +32,7 @@ console.log(props);
     axios
     .post(url, { ...eventForm, dateAndTime: date })
     .then((res) => {
-      // this shoudl go back to the users landing page. 
-        history.push(`/events/`);
+        history.push(`/event/${res.data._id}`);
         // console.log(eventForm.location);
         console.log(res.data);
         // return <Redirect to={`/events/${eventForm.location}`} />

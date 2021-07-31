@@ -33,10 +33,12 @@ const EventView = (props) => {
   console.log(event);
   return (
     <div>
-      <h1>{event.title}</h1>
-      <h1>{event.date}</h1>
-      <h1>{event.location}</h1>
-      <h1>{event.type}</h1>
+      <h1>Event Name:{event.name}</h1>
+      <h1>Event Date:{event.date}</h1>
+      <h1>Location: {event.location}</h1>
+      <h1>Event Type:{event.type}</h1>
+      <h1>User:{event.user}</h1>
+
       <Link to={"/event/edit/" + event._id}>UPDATE</Link>
       <Link to={"/events"} onClick={deleteEvent}>
         DELETE
