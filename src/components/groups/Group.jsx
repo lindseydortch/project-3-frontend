@@ -1,37 +1,48 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import AddMessage from './AddMessage'
 import UpdateMessage from './UpdateMessage'
 import DeleteMessage from './DeleteMessage'
+import Likes from './Likes'
 
 const Group = () => {
 
-    const dummyGroupPosts =[
-        {id: 1,message: "hey group"},
-        {id: 2, message: "Chase please stop screaming"},
-        {id: 3, message: "My food is almost here"},
-        {id: 4, message: "Asif said we are motivating"},
-        {id: 5, message: "we are friends"}
-    ]
+    const [messages, setMessages] = useState()
 
-    const deletePost = (event, id) => {
-        event.preventDefault()
-        console.log(`delete: ${id}`)
+    useEffect(() => {
+        fetch(`http://localhost:4000/group`)
+        .then(res => res.json())
+        .then(messages => setMessages(messages))
+      }, []) 
+
+    const deletePost = (id) => {
+        fetch(`http://localhost:4000/group`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(id)
+    })
+    .then(res => res.json())
+    // .then(res => console.log(res))
+    .then(() => fetch(`http://localhost:4000/group`).then(res => res.json()).then(res => setMessages(res)))
     }
 
     return (
         <div>
             <h1>Single Group Component</h1>
             <p>On this page, users will be able to see a specific group, see, add, update and delete messages</p>
-            {
-                dummyGroupPosts.map((post) => (
-                    <div key={post.id} className="post">
+            { messages ?
+                messages.map((post) => (
+                    <div key={post._id} className="post">
                         <p>{post.message}</p>
-                        <DeleteMessage id={post.id} deletePost={deletePost} />
+                        <UpdateMessage messages={messages} post={post} setMessages={setMessages} />
+                        <Likes post={post}/>
+                        <DeleteMessage post={post} deletePost={deletePost} />
                     </div>
                 )) 
+                : ``
             }
-            <AddMessage />
-            <UpdateMessage />
+            <AddMessage messages={messages} setMessages={setMessages} />
             
         </div>
     )

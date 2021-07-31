@@ -89,8 +89,8 @@ console.log(props);
             <option value="kansascity">Kansas City</option>
             <option value="chicago">Chicago</option>
           </select>
-          <label htmlFor="datetime">Date/Time:</label>
-          <DateTimePicker onChange={setDate} value={date} />
+          <label htmlFor="date">Date/Time:</label>
+          <DateTimePicker onChange={setDate} value={date} id="date"/>
           <label htmlFor="online">Online:</label>
           <input
             type="checkbox"
@@ -122,15 +122,15 @@ console.log(props);
             onChange={handleChange}
             value="5 emoji"
           />
-          <label htmlFor="description">Description:</label>
+          <label htmlFor="details">Description:</label>
           <textarea
             type="text"
-            id="description"
+            id="details"
             cols="30"
             rows="10"
             placeholder="click here to type message"
             onChange={handleChange}
-            value={eventForm.description}
+            value={eventForm.details}
           ></textarea>
           <label htmlFor="attending">Attending:</label>
           <input

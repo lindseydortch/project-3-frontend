@@ -1,14 +1,10 @@
 import React from 'react'
 
-const DeleteMessage = ({deletePost, id}) => {
-    console.log(id)
+const DeleteMessage = ({deletePost, post}) => {
+    // console.log(post)
     return (
         <div>
-            <form className="form">
-            <div className="form-group">
-                    <input type="submit" value="Delete" onClick={deletePost}/>
-                </div>
-            </form>
+           <button className="btn" onClick={() => deletePost(post)}>Delete</button>
         </div>
     )
 }
