@@ -5,35 +5,37 @@ import { useHistory } from 'react-router-dom'
 
 
 const EventUpdateForm = ({eventView, match}) => {
-    const history = useHistory()
-    const blankForm = {
-        name: '',
-        type: '',
-        user: '',
-        location: '',
-        online: '',
-        inPerson: '',
-        socialComfortScale: '',
-        description: '',
-        attending: ''
-      }
-    const [updateForm, setUpdateForm] = useState(blankForm);
-    const [date, setDate] = useState(new Date())
-    const handleChange = (event) => {
-        setUpdateForm({ ...updateForm, [event.target.id]: event.target.value })
-    }
-  
-    const handleSubmit = (event) => {
-        event.preventDefault();
+console.log(eventView);
+const history = useHistory()
+    
+const blankForm = {
+    name: '',
+    type: '',
+    user: '',
+    location: '',
+    online: '',
+    inPerson: '',
+    socialComfortScale: '',
+    description: '',
+    attending: ''
+}
+const [updateForm, setUpdateForm] = useState(blankForm);
+const [date, setDate] = useState(new Date())
+const handleChange = (event) => {
+    setUpdateForm({ ...updateForm, [event.target.id]: event.target.value })
+}
+
+const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(updateForm)
+    const id = match.params.id
+    console.log(id)
+    const url = `http://localhost:4000/event/edit/${id}`
+    axios.put(url, {...updateForm, dateAndTime:date})
+    .then(res => {
+        console.log(res.data)
+        setUpdateForm(blankForm)            
         history.push('/events')
-        console.log(updateForm)
-        const id = match.params.id
-        console.log(id)
-        const url = `http://localhost:8000/events/edit/${id}`
-        axios.put(url, {...updateForm, dateAndTime:date})
-        .then(res => {
-            console.log(res.data)
-            setUpdateForm(blankForm)            
         })
         .catch(err => console.log(err.data))
     };
@@ -43,7 +45,7 @@ const EventUpdateForm = ({eventView, match}) => {
             <div className="form">
                 <form className="form" onSubmit={handleSubmit}>
                 <label htmlFor="name">Name:</label>
-                <input type="text" id="name" placeholder={eventView.name} onChange={handleChange} value={updateForm.name}/>
+                <input type="text" id="name" placeholder={eventView.name} onChange={handleChange} value={eventView.name}/>
                     <label htmlFor="name">Host:</label>
                     <input type="text" id="user" placeholder={eventView.user} onChange={handleChange} value={updateForm.user}/>
                     <label htmlFor="type">Type:</label>
