@@ -3,8 +3,6 @@ import axios from "axios";
 import DateTimePicker from "react-datetime-picker";
 import { useHistory } from "react-router-dom";
 
-import { Redirect } from "react-router";
-
 const EventForm = (props) => {
 
 console.log(props);
@@ -107,6 +105,7 @@ console.log(props);
             onChange={handleChange}
             value="In Person"
           />
+          {/* Change to dropdown */}
           <label htmlFor="socialComfortScale">Sociability Scale:</label>
           <input
             type="checkbox"

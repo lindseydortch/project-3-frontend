@@ -1,7 +1,7 @@
 import './App.css';
-import EventForm from './components/events/EventForm.jsx';
+import EventForm from "./components/events-group/event-forms/EventForm"
 import Header from "./components/header/header";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import Groups from './components/groups/Groups';
 import Group from './components/groups/Group';
 
@@ -9,7 +9,6 @@ import SignInSignUp from "./pages/sign-in-sign-up/sign-in-sign-up";
 import GroupsHomePage from "./pages/groupsHomePage/groups-homepage";
 import EventUpdateForm from "./components/events-group/event-forms/EventUpdateForm";
 import EventView from "./components/events-group/event-view-update-delete/event-view";
-import EventForm from "./components/events-group/event-forms/EventForm";
 import { useState } from "react";
 import CityDirectory from "./pages/eventsHomePage/city-directory";
 import CityHomePage from "./pages/eventsHomePage/city-homepage";

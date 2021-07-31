@@ -46,7 +46,7 @@ const handleSubmit = (event) => {
     .then(res => {
         console.log(res.data)
         // setUpdateForm(preLoadedValues)            
-        history.push('/events')
+        history.push(`/event/${res.data._id}`)
         })
         .catch(err => console.log(err.data))
     };
