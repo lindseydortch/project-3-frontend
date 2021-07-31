@@ -1,13 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import DateTimePicker from 'react-datetime-picker'
 import { useHistory } from 'react-router-dom'
 
 
 const EventUpdateForm = ({eventView, match}) => {
-console.log(eventView);
 const history = useHistory()
-    
+
 const blankForm = {
     name: '',
     type: '',
@@ -39,13 +38,34 @@ const handleSubmit = (event) => {
         })
         .catch(err => console.log(err.data))
     };
+
+    const [event, setEvent] = useState([]);
+    console.log(event);
+
+    useEffect(() => {
+        const id = match.params.id;
+        const url = `http://localhost:4000/event/${id}`;
+        console.log(url);
+        axios
+          .get(url)
+          .then((res) => {
+            console.log(res);
+            const data = res.data;
+            setEvent(data);
+            console.log("data has been received");
+          })
+          .catch(() => {
+            console.log("error retreiving data");
+          });
+      }, []);
+
     return (
         <div>
             <h1>Update Event</h1>
             <div className="form">
                 <form className="form" onSubmit={handleSubmit}>
                 <label htmlFor="name">Name:</label>
-                <input type="text" id="name" placeholder={eventView.name} onChange={handleChange} value={eventView.name}/>
+                <input type="text" id="name" onChange={handleChange} value={eventView.name}/>
                     <label htmlFor="name">Host:</label>
                     <input type="text" id="user" placeholder={eventView.user} onChange={handleChange} value={updateForm.user}/>
                     <label htmlFor="type">Type:</label>
