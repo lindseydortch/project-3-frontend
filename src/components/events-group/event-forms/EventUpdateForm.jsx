@@ -59,7 +59,7 @@ const handleSubmit = (event) => {
             <div className="form">
                 <form className="form" onSubmit={handleSubmit}>
                 <label htmlFor="name">Event Name:</label>
-                <input type="text" id="name" onChange={handleChange} value={event.name}/>
+                <input type="text" id="name" onChange={handleChange} value={updateForm.name}/>
                     <label htmlFor="name">Host:</label>
                     <input type="text" id="user" onChange={handleChange} value={updateForm.user}/>
                     <label htmlFor="type">Type:</label>
@@ -88,8 +88,8 @@ const handleSubmit = (event) => {
                     <label htmlFor="socialComfortScale">Sociability Scale:</label>
                     <input type="checkbox" id="socialComfortScale" placeholder="" onChange={handleChange} value="one emoji"/>
                     <input type="checkbox" id="socialComfortScale" placeholder="" onChange={handleChange} value="5 emoji"/>
-                    <label htmlFor="description">Description:</label>
-                    <textarea type="text" id="description" cols="30" rows="10" placeholder="click here to type message" onChange={handleChange} value={updateForm.details}></textarea>
+                    <label htmlFor="details">Description:</label>
+                    <textarea type="text" id="details" cols="30" rows="10" placeholder="click here to type message" onChange={handleChange} value={updateForm.details}></textarea>
                     <button type="submit">Update EVENT</button>
                 </form>
                 
