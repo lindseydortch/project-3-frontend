@@ -16,8 +16,14 @@ function Header() {
         <Link className="option" to="/groups">
           GROUPS
         </Link>
-        <Link className="option" to="/signin">
+        <Link className="option" to="/login">
           SIGN IN
+        </Link>
+        <Link className="option" to="/register">
+          REGISTER
+        </Link>
+        <Link className="option" to="/profile">
+          PROFILE
         </Link>
       </div>
     </div>

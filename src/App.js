@@ -13,6 +13,10 @@ import { useState } from "react";
 import CityDirectory from "./pages/eventsHomePage/city-directory";
 import CityHomePage from "./pages/eventsHomePage/city-homepage";
 
+import Register from './components/auth/Register'
+import Login from './components/auth/Login'
+import Profile from './components/auth/Profile'
+
 function App() {
   const [eventView, setEventView] = useState([]);
 
@@ -60,6 +64,11 @@ function App() {
         component={EventForm}/>
         <Route exact path='/groups' component={Groups} />
         <Route exact path='/group' component={Group} />
+
+        <Route path='/register' component={Register} />
+        <Route path='/login' component={Login} />
+        <Route path='/profile' component={Profile} />
+
 
     </div>
   );

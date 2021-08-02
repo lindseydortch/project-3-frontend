@@ -3,7 +3,7 @@ import axios from "axios";
 import DateTimePicker from "react-datetime-picker";
 import { useHistory } from "react-router-dom";
 
-import { Redirect } from "react-router";
+// import { Redirect } from "react-router";
 
 const EventForm = (props) => {
 
