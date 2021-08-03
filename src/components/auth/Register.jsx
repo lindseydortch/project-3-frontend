@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
 import { UserContext } from "../../App";
+import ErrorMessages from "../resources/ErrorMessages";
 import axios from "axios";
 
 const Register = () => {
   const { userData, setUserData } = useContext(UserContext);
+  const [errorMsg, setErrorMsg] = useState();
 
   let cleanSlate = {
     userName: "",
@@ -62,9 +64,9 @@ const Register = () => {
       window.location = "/";
     } catch (err) {
       console.log(err);
-      //   err.response.data.msg
-      //     ? setErrorMsg(err.response.data.msg)
-      //     : setErrorMsg("We have some error!");
+      err.response.data.msg
+        ? setErrorMsg(err.response.data.msg)
+        : setErrorMsg("Dude Where's My Car!");
     }
   };
 
@@ -117,6 +119,8 @@ const Register = () => {
         <br />
         <button type="submit">REGISTER USER</button>
       </form>
+
+      {errorMsg && <ErrorMessages msg={errorMsg} />}
     </div>
   );
 };

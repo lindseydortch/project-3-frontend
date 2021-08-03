@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import {UserContext} from "../../App"
+import ErrorMessages from "../resources/ErrorMessages";
 import axios from "axios"
 
 function Login() {
@@ -53,7 +54,7 @@ function Login() {
         console.log(err)
         err.response.data.msg
           ? setErrorMsg(err.response.data.msg)
-          : setErrorMsg("We have an error!");
+          : setErrorMsg("We have a User Login error!");
       }
   }
 
@@ -81,6 +82,8 @@ function Login() {
         <br />
         <button type="submit">LOGIN</button>
       </form>
+      
+      {errorMsg && <ErrorMessages msg={errorMsg} />}
     </div>
   )
 }
