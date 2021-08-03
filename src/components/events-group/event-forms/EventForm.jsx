@@ -1,31 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import {UserContext} from "../../../App";
 import axios from "axios";
+// possibly remove because of differt methods
 import DateTimePicker from "react-datetime-picker";
 import { useHistory } from "react-router-dom";
+// import { Redirect } from "react-router";
 
-import { Redirect } from "react-router";
 
 const EventForm = (props) => {
+  const { userData, setUserData } = useContext(UserContext);
+  console.log(userData)
 
 console.log(props);
+let history = useHistory();
 
-  let history = useHistory();
   const blankForm = {
     name: "",
+    addedBy: "",
     type: "",
-    user: "",
-    location: "",
+    city: "",
+    state:"",
+    date: "",
     online: "",
     inPerson: "",
+    cost: "",
     socialComfortScale: "",
     description: "",
-    attending: false,
+    attending: [],
   };
+
   const [eventForm, setEventForm] = useState(blankForm);
+
+  // going to implment std html date method possibly remove this
   const [date, setDate] = useState(new Date());
+
   const handleChange = (event) => {
     setEventForm({ ...eventForm, [event.target.id]: event.target.value });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const url = "http://localhost:4000/event/add";
@@ -46,23 +58,24 @@ console.log(props);
     <h1>Add Event</h1>
       <div className="form">
         <form className="form" onSubmit={handleSubmit}>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">Event Name:</label>
           <input
             type="text"
             id="name"
-            placeholder=""
+            placeholder="Event Title"
             onChange={handleChange}
             value={eventForm.name}
           />
-          <label htmlFor="name">Host:</label>
+          <br/>
+          <label htmlFor="addedBy">Host:</label>
           <input
             type="text"
-            id="user"
-            placeholder=""
-            onChange={handleChange}
-            value={eventForm.user}
+            id="addedBy"
+            placeholder={userData.user.userName}
+            value={userData.user.userName}
           />
-          <label htmlFor="type">Type:</label>
+          <br/>
+          <label htmlFor="type">Event Type:</label>
           <select
             type="text"
             id="type"
@@ -76,12 +89,13 @@ console.log(props);
             <option value="Movies">Movies</option>
             <option value="Music">Music</option>
           </select>
-          <label htmlFor="location">Location:</label>
+          <br/>
+          <label htmlFor="City">City:</label>
           <select
             type="text"
-            id="location"
+            id="city"
             onChange={handleChange}
-            value={eventForm.location}
+            value={eventForm.city}
           >
             <option placeholder="Choose Your City"></option>
             <option value="orlando">Orlando</option>
@@ -89,40 +103,61 @@ console.log(props);
             <option value="kansascity">Kansas City</option>
             <option value="chicago">Chicago</option>
           </select>
+          <br/>
           <label htmlFor="date">Date/Time:</label>
-          <DateTimePicker onChange={setDate} value={date} id="date"/>
+          <input type="datetime-local" id="date" onChange={handleChange} value={eventForm.date} />
+          <br/>
           <label htmlFor="online">Online:</label>
           <input
             type="checkbox"
             id="online"
-            placeholder=""
+            placeholder="True or False"
             onChange={handleChange}
-            value="Online"
+            value={eventForm.online}
           />
+          <br/>
           <label htmlFor="inPerson">In Person:</label>
           <input
             type="checkbox"
             id="inPerson"
-            placeholder=""
+            placeholder="True or False"
             onChange={handleChange}
-            value="In Person"
+            value={eventForm.inPerson}
           />
           <label htmlFor="socialComfortScale">Sociability Scale:</label>
           <input
             type="checkbox"
             id="socialComfortScale"
-            placeholder=""
+            placeholder="1"
             onChange={handleChange}
-            value="one emoji"
+            value="1 emojie"
           />
           <input
             type="checkbox"
             id="socialComfortScale"
-            placeholder=""
+            placeholder="2"
             onChange={handleChange}
-            value="5 emoji"
+            value="2 emoji"
           />
+          <input
+            type="checkbox"
+            id="socialComfortScale"
+            placeholder="3"
+            onChange={handleChange}
+            value="3 emoji"
+          />
+          <br/>
+         <label htmlFor="cost">Event Cost:</label>
+          <input
+            type="number"
+            id="cost"
+            placeholder="Event Cost:"
+            onChange={handleChange}
+            value={eventForm.cost}
+          />
+          <br/>
           <label htmlFor="details">Description:</label>
+          <br/>
           <textarea
             type="text"
             id="details"

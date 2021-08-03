@@ -4,7 +4,7 @@ import DateTimePicker from 'react-datetime-picker'
 import { useHistory } from 'react-router-dom'
 
 
-const EventUpdateForm = ({eventView, match}) => {
+const EventUpdateForm = ({match}) => {
     const history = useHistory()
     
     const [event, setEvent] = useState([]);

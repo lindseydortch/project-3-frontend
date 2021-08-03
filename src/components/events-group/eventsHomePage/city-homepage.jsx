@@ -35,7 +35,7 @@ function CityHomePage({ match }) {
   console.log(city);
 
   let cityEvent = eventData.filter(
-    (event) => city === event.location.toLowerCase()
+    (event) => city === event.city.toLowerCase()
   );
   console.log(cityEvent);
   return (
@@ -44,13 +44,16 @@ function CityHomePage({ match }) {
         <Link to='/eventadd'> Add Event </Link>
         {cityEvent.map((event) => (
           <div key={event.id}>
-            <h2>{event.name}</h2>
-            <h2>{event.type}</h2>
-            <h3>{event.location}</h3>
-            <h3>{event.user}</h3>
-            <h3>{event.inPerson}</h3>
-            <h3>{event.online}</h3>
-            <p>{event.description}</p>
+            <h2>Event:{event.name}</h2>
+            <h2>Host:{event.addedBy}</h2>
+            <h2>Type:{event.type}</h2>
+            <h3>City:{event.city}</h3>
+            {/* <h3>State:{event.state}</h3> */}
+            <h3>Event Date:{event.date}</h3>
+            <h3>Online:{event.online.toString()}</h3>
+            <h3>In Person:{event.inPerson.toString()}</h3>
+            <h3>Cost:{event.cost}</h3>
+            {/* <p>Event Details:{event.details}</p> */}
             <Link to={"/event/" + event._id}>View Event</Link>
 
           </div>
