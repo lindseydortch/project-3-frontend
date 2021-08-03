@@ -11,7 +11,7 @@ import Group from "./components/groups/Group";
 import GroupsHomePage from "./components/groups/groupsHomePage/groups-homepage";
 import EventUpdateForm from "./components/events-group/event-forms/EventUpdateForm";
 import EventView from "./components/events-group/event-view-update-delete/event-view";
-import CityDirectory from "./components/events-group/eventsHomePage/city-directory";
+import CityDirectory from "./components/events-group/events-directory/city-directory";
 import CityHomePage from "./components/events-group/eventsHomePage/city-homepage";
 // auth
 import Register from "./components/auth/Register";
@@ -68,7 +68,7 @@ function App() {
     <div>
       <UserContext.Provider value={{ userData, setUserData }}>
         <Header />
-        <Link to="/events/add">Add Event</Link>
+        
         <Route path="/events" component={CityDirectory} />
         <Route
           exact

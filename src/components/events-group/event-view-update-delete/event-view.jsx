@@ -3,10 +3,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const EventView = (props) => {
+const EventView =  (props) => {
   console.log(props);
-
-  const [event, setEvent] = useState([]);
 
   useEffect(() => {
     const id = props.match.params.id;
@@ -25,6 +23,7 @@ const EventView = (props) => {
       });
   }, []);
 
+  const [event, setEvent] = useState([]);
   function deleteEvent() {
     const id = props.match.params.id;
     const url = `http://localhost:4000/event/${id}`;
@@ -33,11 +32,16 @@ const EventView = (props) => {
   console.log(event);
   return (
     <div>
-      <h1>Event Name:{event.name}</h1>
-      <h1>Event Date:{event.date}</h1>
-      <h1>Location: {event.location}</h1>
-      <h1>Event Type:{event.type}</h1>
-      <h1>User:{event.user}</h1>
+      <h2>Event:{event.name}</h2>
+      <h2>Host:{event.addedBy}</h2>
+      <h2>Type:{event.type}</h2>
+      <h3>City:{event.city}</h3>
+      <h3>State:{event.state}</h3>
+      <h3>Event Date:{event.date}</h3>
+      <h3>Online:{event.online}</h3>
+      <h3>In Person:{event.inPerson}</h3>
+      <h3>Cost:{event.cost}</h3>
+      <p>Event Details:{event.details}</p>
 
       <Link to={"/event/edit/" + event._id}>UPDATE</Link>
       <Link to={"/events"} onClick={deleteEvent}>
