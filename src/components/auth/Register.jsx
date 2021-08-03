@@ -1,7 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import {UserContext} from "../../App"
 import axios from "axios"
 
 const Register = () => {
+
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setUser((oldUser) => {

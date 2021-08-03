@@ -1,29 +1,76 @@
-import './App.css';
+import { createContext } from "react"
+import { useState, useEffect } from "react";
+import { Route, Link } from "react-router-dom";
+import axios from 'axios'
+
+// general components
 import EventForm from "./components/events-group/event-forms/EventForm"
 import Header from "./components/header/header";
-import { Route, Link } from "react-router-dom";
 import Groups from './components/groups/Groups';
 import Group from './components/groups/Group';
-
 import SignInSignUp from "./pages/sign-in-sign-up/sign-in-sign-up";
 import GroupsHomePage from "./pages/groupsHomePage/groups-homepage";
 import EventUpdateForm from "./components/events-group/event-forms/EventUpdateForm";
 import EventView from "./components/events-group/event-view-update-delete/event-view";
-import { useState } from "react";
 import CityDirectory from "./pages/eventsHomePage/city-directory";
 import CityHomePage from "./pages/eventsHomePage/city-homepage";
-
+// auth 
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Profile from './components/auth/Profile'
 
-function App() {
-  const [eventView, setEventView] = useState([]);
+export const UserContext = createContext()
 
+function App() {
+  // auth middleware
+  const [userData, setUserData] = useState({
+    token: undefined,
+    user: undefined
+  })
+
+  useEffect( () => {
+    const isLoggedIn = async () => {
+      let token = localStorage.getItem("auth-token")
+      console.log(token);
+      if (token == null) {
+        localStorage.setItem("auth-token", "")
+        token=""
+      }
+
+      // check if this route is working from the post
+      const tokenResponse = await axios.post(
+        "/tokenIsValid",
+        null,
+        {headers: {"auth-token": token}}
+      )
+      console.log(tokenResponse.data)
+      if(tokenResponse.data){
+        const userResponse = await axios.get('/profile',
+        {headers: {'auth-token':token}})
+        console.log(tokenResponse.data);
+        setUserData({
+          token:token,
+          user:userResponse.data
+        })
+      }
+    }
+    isLoggedIn()
+  },[])
+
+  const logout = () => {
+    setUserData( {
+      token:undefined,
+      user:undefined
+    })
+  }
+
+  // event view useState
+  const [eventView, setEventView] = useState([]);
   return (
 
     <div>
       <Header />
+      <UserContext.Provider value={{ userData, setUserData}} >
     <Link to='/events/add'>
         Add Event
       </Link>
@@ -69,7 +116,7 @@ function App() {
         <Route path='/login' component={Login} />
         <Route path='/profile' component={Profile} />
 
-
+        </UserContext.Provider>
     </div>
   );
 }

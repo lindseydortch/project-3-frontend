@@ -17,7 +17,7 @@ function Header() {
           GROUPS
         </Link>
         <Link className="option" to="/login">
-          SIGN IN
+          LOGIN
         </Link>
         <Link className="option" to="/register">
           REGISTER
