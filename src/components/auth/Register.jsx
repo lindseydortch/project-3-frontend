@@ -1,10 +1,18 @@
 import React, { useState, useContext } from "react";
-import {UserContext} from "../../App"
-import axios from "axios"
+import { UserContext } from "../../App";
+import axios from "axios";
 
 const Register = () => {
+  const { userData, setUserData } = useContext(UserContext);
 
-
+  let cleanSlate = {
+    userName: "",
+    password: "",
+    passwordAgain: "",
+    city: "",
+    state: "",
+  };
+  const [user, setUser] = useState(cleanSlate);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,33 +24,54 @@ const Register = () => {
     });
   };
 
-  let cleanSlate = {
-    userName: "",
-    password: "",
-    passwordAgain: "",
-    city: "",
-    state: "",
-  };
-  const [user, setUser] = useState(cleanSlate);
-
-  const handleSubmit = (e) => {
-      e.preventDefault()
-
-      const newUser ={
-          userName: user.userName,
-          password: user.password,
-          city: user.city,
-          state:user.state
-      }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const newUser = {
+        userName: user.userName,
+        password: user.password,
+        city: user.city,
+        state: user.state,
+      };
       console.log(newUser);
 
-  }
+      if (user.password !== user.passwordAgain) {
+        console.log("Enter the same password twice!");
+      } else {
+        console.log(newUser);
+      }
+      await axios
+        .post("http://localhost:4000/register", newUser)
+        .then((res) => console.log(res.data))
+        .then(console.log(newUser.userName + " has been added"));
 
+      const loginResponse = await axios.post("/login", newUser);
+      console.log(loginResponse.data);
+
+      setUserData({
+        token: loginResponse.data.token,
+        user: loginResponse.data.user,
+      });
+      localStorage.setItem("auth-token", loginResponse.data.token);
+
+      setUser({
+        userName: "",
+        password: "",
+      });
+
+      window.location = "/";
+    } catch (err) {
+      console.log(err);
+      //   err.response.data.msg
+      //     ? setErrorMsg(err.response.data.msg)
+      //     : setErrorMsg("We have some error!");
+    }
+  };
 
   return (
     <div>
       <h1>Register Here</h1>
-      <form onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit}>
         <label>User Name:</label>
         <input
           type="text"

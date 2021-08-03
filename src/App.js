@@ -21,6 +21,8 @@ import Profile from './components/auth/Profile'
 
 export const UserContext = createContext()
 
+ 
+
 function App() {
   // auth middleware
   const [userData, setUserData] = useState({
@@ -37,7 +39,7 @@ function App() {
         token=""
       }
 
-      // check if this route is working from the post
+      // route is working now
       const tokenResponse = await axios.post(
         "/tokenIsValid",
         null,
@@ -50,7 +52,7 @@ function App() {
         console.log(tokenResponse.data);
         setUserData({
           token:token,
-          user:userResponse.data
+          user: userResponse.data
         })
       }
     }
@@ -69,8 +71,8 @@ function App() {
   return (
 
     <div>
-      <Header />
       <UserContext.Provider value={{ userData, setUserData}} >
+      <Header />
     <Link to='/events/add'>
         Add Event
       </Link>

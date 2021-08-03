@@ -4,7 +4,7 @@ import axios from "axios"
 
 function Login() {
   const { userData, setUserData} = useContext(UserContext)
-        
+  const [errorMsg, setErrorMsg] = useState();      
 
 
   const handleChange = (e) => {
@@ -32,23 +32,28 @@ function Login() {
             userName: user.userName,
             password: user.password,
         }
+        // checking password for login
+        console.log("userData: ", userData)
+        console.log("newUser data: ", newUser)
 
         const loginResponse = await axios.post('/login', newUser)
+        console.log(loginResponse.data)
         setUserData({
           token: loginResponse.data.token,
           user: loginResponse.data.user,
         });
         localStorage.setItem("auth-token",loginResponse.data.token)
-
+        
         setUser({
           userName:'',
           password:'',
         })
+        window.location ='/events'
       }catch (err) {
         console.log(err)
-        // err.response.data.msg
-          // ? setErrorMsg(err.response.data.msg)
-          // : setErrorMsg("We have an error!");
+        err.response.data.msg
+          ? setErrorMsg(err.response.data.msg)
+          : setErrorMsg("We have an error!");
       }
   }
 
