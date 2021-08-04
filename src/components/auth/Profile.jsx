@@ -10,7 +10,7 @@ function Profile() {
             <h4><b>User ID:</b> {userData.user.id}</h4>
             <h4><b>Username:</b> {userData.user.userName}</h4>
             <h4><b>Current City:</b> {userData.user.city}</h4>
-            <h4><b>Current State:</b> {userData.user.state}</h4>
+            <h4><b>Interaction Level:</b> {userData.user.interact}</h4>
             <h4><b>Date Registered:</b> {userData.user.date}</h4>
         </div>
     )

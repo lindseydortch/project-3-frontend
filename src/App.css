@@ -12,6 +12,117 @@ html {
 
 body {
   box-sizing: border-box;
+  font-family: "Roboto", san-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.u-margin-top-25 {
+  margin-top: 3rem;
+}
+
+.btn {
+  border: none;
+  padding: 2rem;
+  border-radius: 50rem;
+  width: 100%;
+}
+.btnMistyRose {
+  background-color: #FFE3E0;
+  color: #EF6351;
+}
+
+.header {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #EF6351;
+}
+
+.logo {
+  display: inline-block;
+  font-family: "Style Script", cursive;
+  width: 50%;
+}
+.logo-link {
+  color: #FFE3E0;
+  font-size: 4rem;
+  letter-spacing: 0.1rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+}
+.navbar_list {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.navbar_item {
+  color: #FFE3E0;
+  font-size: 2rem;
+}
+.navbar_item:not(:last-child) {
+  margin-right: 4rem;
+}
+
+.loginPage {
+  height: 90vh;
+  display: flex;
+}
+.loginPage h3 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #FFE3E0;
+  text-align: center;
+}
+
+.login_form {
+  width: 50%;
+  padding: 8rem;
+  background-color: #EF6351;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.login__image {
+  width: 50%;
+  background-image: linear-gradient(rgba(255, 227, 224, 0.6), rgba(255, 227, 224, 0.6)), url("./assets/login-photo.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+
+.form-group {
+  width: 100%;
+}
+.form-group label {
+  display: block;
+  margin: 1.5rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #FFE3E0;
+}
+.form-group input {
+  width: 100%;
+  display: block;
+  padding: 1.5rem;
+  border-radius: 50rem;
+  border: none;
+  font-size: 1.4rem;
+  color: #EF6351;
+  letter-spacing: 0.1rem;
+}
+.form-group input::placeholder {
+  font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+  letter-spacing: 0.1rem;
 }
 
 /*# sourceMappingURL=App.css.map */
