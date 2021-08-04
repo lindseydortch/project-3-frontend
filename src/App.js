@@ -12,6 +12,7 @@ import EventUpdateForm from "./components/events-group/event-forms/EventUpdateFo
 import EventView from "./components/events-group/event-view-update-delete/event-view";
 import CityDirectory from "./components/events-group/events-directory/city-directory";
 import CityHomePage from "./components/events-group/eventsHomePage/city-homepage";
+import ResourcePage from "./components/resources/ResourcePage";
 // auth
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -106,9 +107,11 @@ function App() {
           path="/groups/:interest"
           render={(routerProps) => <Group match={routerProps.match} />}
         />
+
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/profile" component={Profile} />
+        <Route path="/resources" component={ResourcePage} />
       </UserContext.Provider>
     </div>
   );
