@@ -8,11 +8,11 @@ import EventForm from "./components/events-group/event-forms/EventForm";
 import Header from "./components/header/header";
 import Groups from "./components/groups/Groups";
 import Group from "./components/groups/Group";
-import GroupsHomePage from "./components/groups/groupsHomePage/groups-homepage";
 import EventUpdateForm from "./components/events-group/event-forms/EventUpdateForm";
 import EventView from "./components/events-group/event-view-update-delete/event-view";
 import CityDirectory from "./components/events-group/events-directory/city-directory";
 import CityHomePage from "./components/events-group/eventsHomePage/city-homepage";
+import ResourcePage from "./components/resources/ResourcePage";
 // auth
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -99,14 +99,17 @@ function App() {
           render={(routerProps) => <CityHomePage match={routerProps.match} />}
         />
         {/* <Route exact path="/event/:id" component={EventView} /> */}
-        <Route path="/groups" component={GroupsHomePage} />
         <Route exact path="/events/add" component={EventForm} />
         <Route exact path="/groups" component={Groups} />
-        <Route exact path="/group" component={Group} />
+        <Route
+          path="/groups/:interest"
+          render={(routerProps) => <Group match={routerProps.match} />}
+        />
 
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
         <Route path="/profile" component={Profile} />
+        <Route path="/resources" component={ResourcePage} />
       </UserContext.Provider>
     </div>
   );
