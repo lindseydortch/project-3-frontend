@@ -39,27 +39,35 @@ function CityHomePage({ match }) {
   );
   console.log(cityEvent);
   return (
-    <div>
-      <section>
-        <Link to='/eventadd'> Add Event </Link>
-        {cityEvent.map((event) => (
-          <div key={event.id}>
-            <h2>Event:{event.name}</h2>
-            <h2>Host:{event.addedBy}</h2>
-            <h2>Type:{event.type}</h2>
-            <h3>City:{event.city}</h3>
-            {/* <h3>State:{event.state}</h3> */}
-            <h3>Event Date:{event.date}</h3>
-            <h3>Online:{event.online.toString()}</h3>
-            <h3>In Person:{event.inPerson.toString()}</h3>
-            <h3>Cost:{event.cost}</h3>
-            {/* <p>Event Details:{event.details}</p> */}
-            <Link to={"/event/" + event._id}>View Event</Link>
+    <section className="cityHomepage">
+      <Link to='/eventadd' className="btn btnMistyRose addEvent"> Add Event </Link>
+      <div className="events">
 
-          </div>
-        ))}
-      </section>
-    </div>
+      
+      {cityEvent.map((event) => (
+        <div key={event.id} className="event">
+          <h2 className="event_heading">{event.name}</h2>
+          
+          <h2 className="event_host">Hosted By:{event.addedBy}</h2>
+          {
+            event.inPerson ? <h3 className="event_social">In Person</h3> : <h3 className="event_social">Online</h3>
+          }
+          <h2 className="event_type">Type of Event:{event.type}</h2>
+          <h3 className="event_city">City:{event.city}</h3>
+          {/* <h3>State:{event.state}</h3> */}
+          <h3 className="event_date">Event Date:{event.date}</h3>
+          {/* <h3>Online:{event.online.toString()}</h3>
+          <h3>In Person:{event.inPerson.toString()}</h3> */}
+          
+          <h3 className="event_cost">${event.cost}</h3>
+          {/* <p>Event Details:{event.details}</p> */}
+          <Link to={"/event/" + event._id} className="btn btnFireOpal">View Event</Link>
+
+        </div>
+        
+      ))}
+      </div>
+    </section>
   );
 }
 

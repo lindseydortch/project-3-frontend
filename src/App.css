@@ -24,6 +24,14 @@ a {
   margin-top: 3rem;
 }
 
+.u-margin-top-1 {
+  margin-top: 1rem;
+}
+
+.display-none {
+  display: none;
+}
+
 .btn {
   border: none;
   padding: 2rem;
@@ -32,10 +40,16 @@ a {
   cursor: pointer;
   text-transform: uppercase;
   font-size: 1.5rem;
+  display: inline-block;
+  text-align: center;
 }
 .btnMistyRose {
   background-color: #FFE3E0;
   color: #EF6351;
+}
+.btnFireOpal {
+  background-color: #EF6351;
+  color: #FFE3E0;
 }
 
 .header {
@@ -43,6 +57,7 @@ a {
   display: flex;
   justify-content: space-between;
   background-color: #EF6351;
+  border-bottom: 0.2rem solid #FFE3E0;
 }
 
 .logo {
@@ -162,7 +177,119 @@ a {
 }
 
 .city-directory {
+  padding: 4rem;
+  width: 100%;
+  background-color: #FFE3E0;
+}
+.city-directory_list {
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.city-directory .card {
+  display: inline-block;
+  width: 35%;
+  border-radius: 0.5rem;
+  margin: 3rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.city-directory .card img {
+  width: 100%;
+  height: 30rem;
+  object-position: center;
+  object-fit: cover;
+}
+.city-directory .card a {
+  padding: 4rem;
+  background-color: #EF6351;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  margin-top: -2rem;
+  color: #FFE3E0;
+  text-transform: uppercase;
+  font-size: 2rem;
+  transition: all 0.2s ease-in;
+}
+.city-directory .card a:hover {
+  opacity: 0.95;
+}
+
+.cityHomepage {
+  min-height: 90vh;
+  padding: 10rem;
+  background-color: #EF6351;
+  position: relative;
+}
+.cityHomepage .addEvent {
+  position: absolute;
+  width: 10%;
+  text-align: center;
+  top: 3rem;
+  right: 5rem;
+}
+
+.events {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.event {
+  width: 25%;
+  background-color: #FFE3E0;
+  border-radius: 0.5rem;
+  padding: 4rem;
+  margin: 3rem;
+}
+.event_heading {
+  font-size: 2rem;
+  color: #EF6351;
+  margin-bottom: 1rem;
+}
+.event_host {
+  font-size: 1.5rem;
+  color: #F38375;
+  margin-bottom: 0.2rem;
+}
+.event_type, .event_city, .event_date {
+  font-size: 1.3rem;
+  color: #F38375;
+  margin-bottom: 0.5rem;
+}
+.event_cost {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  color: #EF6351;
+  text-align: center;
+}
+.event_social {
+  margin: 1rem 0;
+  background-color: #EF6351;
+  border-radius: 5rem;
+  display: inline-block;
+  padding: 1rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: #FFE3E0;
+}
+.event_details {
+  font-size: 1.3rem;
+  color: #EF6351;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.eventSingle {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F38375;
 }
 
 /*# sourceMappingURL=App.css.map */

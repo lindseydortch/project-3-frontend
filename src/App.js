@@ -71,7 +71,7 @@ function App() {
       <UserContext.Provider value={{ userData, setUserData }}>
         <Header />
         
-        <Route path="/events" component={CityDirectory} />
+        <Route exact path="/events" component={CityDirectory} />
         <Route
           exact
           path="/event/:id"
@@ -96,7 +96,7 @@ function App() {
           )}
         />
 
-        <Route
+        <Route exact
           path="/events/:city"
           render={(routerProps) => <CityHomePage match={routerProps.match} />}
         />
