@@ -1,0 +1,41 @@
+.header {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: $fire-opal;
+  border-bottom: .2rem solid $misty-rose;
+}
+
+.logo {
+  display: inline-block;
+  font-family: $logo-font;
+  width: 50%;
+
+  &-link {
+    color: $misty-rose;
+    font-size: 4rem;
+    letter-spacing: .1rem;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+
+  &_list {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &_item {
+    color: $misty-rose;
+    font-size: 2rem;
+
+    &:not(:last-child) {
+      margin-right: 4rem;
+    }
+  }
+}

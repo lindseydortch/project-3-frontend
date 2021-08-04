@@ -1,0 +1,99 @@
+.loginPage {
+  height: 90vh;
+  display: flex;
+
+  & h3 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: $misty-rose;
+    text-align: center;
+  }
+}
+
+.login {
+  &_form {
+    width: 50%;
+    padding: 8rem;
+    background-color: $fire-opal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__image {
+    width: 50%;
+    background-image: 
+    linear-gradient(rgba($misty-rose, .6), rgba($misty-rose, .6)),
+    url('./assets/login-photo.jpeg');
+    background-position: left;
+    background-size: cover;
+  }
+}
+
+.form {
+  &-group {
+    width: 100%;
+
+    & label {
+      display: block;
+      margin: 1.5rem;
+      font-size: 2rem;
+      text-transform: uppercase;
+      color: $misty-rose;
+    }
+
+    & input {
+      width: 100%;
+      display: block;
+      padding: 1.5rem;
+      border-radius: 50rem;
+      border: none;
+      font-size: 1.4rem;
+      color: $fire-opal;
+      letter-spacing: .1rem;
+      background-color: $misty-rose;
+
+      &::placeholder {
+        font-size: inherit;
+        color: inherit;
+        font-family: inherit;
+        letter-spacing: .1rem;
+      }
+    }
+
+    & select {
+      width: 100%;
+      padding: 1.5rem;
+      background-color: $misty-rose;
+      border: none;
+      border-radius: 50rem;
+    }
+
+    & textarea {
+      margin: 1rem;
+      width: 100%;
+      border: 0;
+      border-radius: .5rem;
+      background-color: $misty-rose;
+      color: $fire-opal;
+      padding: 2rem;
+      font-size: 1.4rem;
+
+      &::placeholder {
+        font-family: Roboto;
+        color: $fire-opal;
+        text-transform: uppercase;
+      }
+    }
+
+    & .checkbox {
+      display: inline-block;
+      border: 0;
+      padding: 2rem;
+    }
+
+    &.checkboxLabel {
+      display: inline-block !important;
+    }
+  }
+}

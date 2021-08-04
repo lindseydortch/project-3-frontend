@@ -1,0 +1,30 @@
+.register {
+  height: 90vh;
+  display: flex;
+
+  & h3 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: $misty-rose;
+    text-align: center;
+  }
+
+  &_image {
+    width: 50%;
+    background-image: 
+    linear-gradient(rgba($misty-rose, .6), rgba($misty-rose, .6)),
+      url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80')
+    ;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &_form {
+    background-color: $fire-opal;
+    padding: 8rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
