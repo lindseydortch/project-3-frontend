@@ -29,6 +29,9 @@ a {
   padding: 2rem;
   border-radius: 50rem;
   width: 100%;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1.5rem;
 }
 .btnMistyRose {
   background-color: #FFE3E0;
@@ -94,7 +97,7 @@ a {
 .login__image {
   width: 50%;
   background-image: linear-gradient(rgba(255, 227, 224, 0.6), rgba(255, 227, 224, 0.6)), url("./assets/login-photo.jpeg");
-  background-position: center;
+  background-position: left;
   background-size: cover;
 }
 
@@ -117,12 +120,49 @@ a {
   font-size: 1.4rem;
   color: #EF6351;
   letter-spacing: 0.1rem;
+  background-color: #FFE3E0;
 }
 .form-group input::placeholder {
   font-size: inherit;
   color: inherit;
   font-family: inherit;
   letter-spacing: 0.1rem;
+}
+.form-group select {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #FFE3E0;
+  border: none;
+  border-radius: 50rem;
+}
+
+.register {
+  height: 90vh;
+  display: flex;
+}
+.register h3 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #FFE3E0;
+  text-align: center;
+}
+.register_image {
+  width: 50%;
+  background-image: linear-gradient(rgba(255, 227, 224, 0.6), rgba(255, 227, 224, 0.6)), url("https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80");
+  background-position: center;
+  background-size: cover;
+}
+.register_form {
+  background-color: #EF6351;
+  padding: 8rem;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.city-directory {
+  display: flex;
 }
 
 /*# sourceMappingURL=App.css.map */

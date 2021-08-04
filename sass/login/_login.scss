@@ -25,7 +25,7 @@
     background-image: 
     linear-gradient(rgba($misty-rose, .6), rgba($misty-rose, .6)),
     url('./assets/login-photo.jpeg');
-    background-position: center;
+    background-position: left;
     background-size: cover;
   }
 }
@@ -51,6 +51,7 @@
       font-size: 1.4rem;
       color: $fire-opal;
       letter-spacing: .1rem;
+      background-color: $misty-rose;
 
       &::placeholder {
         font-size: inherit;
@@ -58,6 +59,14 @@
         font-family: inherit;
         letter-spacing: .1rem;
       }
+    }
+
+    & select {
+      width: 100%;
+      padding: 1.5rem;
+      background-color: $misty-rose;
+      border: none;
+      border-radius: 50rem;
     }
   }
 }
