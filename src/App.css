@@ -52,6 +52,27 @@ a {
   color: #FFE3E0;
 }
 
+.btnLike {
+  border: none;
+  padding: 2rem;
+  border-radius: 50rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  display: inline-block;
+  text-align: center;
+}
+
+.subtract {
+  background-color: #FFE3E0;
+  color: #EF6351;
+}
+
+.add {
+  background-color: #F38375;
+  color: #FFE3E0;
+}
+
 .header {
   padding: 2rem;
   display: flex;
@@ -379,6 +400,64 @@ a {
 
 .formUpdateEvent {
   width: 80%;
+}
+
+.groups {
+  min-height: 90vh;
+  padding: 4rem;
+  width: 100%;
+  background-color: #FFE3E0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.groups_list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.groups .card {
+  width: 35%;
+  border-radius: 0.5rem;
+  margin: 3rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.groups .card a {
+  padding: 4rem;
+  background-color: #EF6351;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  margin-top: -2rem;
+  color: #FFE3E0;
+  text-transform: uppercase;
+  font-size: 2rem;
+  transition: all 0.2s ease-in;
+}
+.groups .card a:hover {
+  opacity: 0.95;
+}
+
+.singleGroup {
+  padding: 6rem;
+  background-color: #EF6351;
+}
+.singleGroup h1 {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFE3E0;
+}
+
+.likeCount {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #F38375;
+  margin: 1.5rem 0;
 }
 
 .resources {

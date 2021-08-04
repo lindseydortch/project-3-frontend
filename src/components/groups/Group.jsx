@@ -28,23 +28,22 @@ const Group = ({ match }) => {
     }
 
     return (
-        <div>
+        <section className="singleGroup">
             <h1>{match.params.interest}</h1>
-            <p>Discuss {match.params.interest} here!</p>
             { messages ?
                 messages.map((post) => (
                     <div key={post._id} className="post">
                         <p>{post.message}</p>
                         <UpdateMessage messages={messages} post={post} setMessages={setMessages} />
                         <Likes post={post}/>
-                        <DeleteMessage post={post} deletePost={deletePost} />
+                        <DeleteMessage post={post} deletePost={deletePost}/>
                     </div>
                 )) 
                 : ``
             }
             <AddMessage messages={messages} setMessages={setMessages} />
             
-        </div>
+        </section>
     )
 }
 

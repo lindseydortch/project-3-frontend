@@ -71,7 +71,7 @@ function App() {
     <div>
       <UserContext.Provider value={{ userData, setUserData }}>
         <Header />
-        <Route exact path="" component={ResourcePage} />
+        <Route exact path="/" component={ResourcePage} />
         <Route exact path="/events" component={CityDirectory} />
         <Route
           exact
@@ -104,7 +104,7 @@ function App() {
         {/* <Route exact path="/event/:id" component={EventView} /> */}
         <Route exact path="/events/add" component={EventForm} />
         <Route exact path="/groups" component={Groups} />
-        <Route
+        <Route exact
           path="/groups/:interest"
           render={(routerProps) => <Group match={routerProps.match} />}
         />
