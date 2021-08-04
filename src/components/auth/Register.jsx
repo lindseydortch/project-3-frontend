@@ -12,7 +12,7 @@ const Register = () => {
     password: "",
     passwordAgain: "",
     city: "",
-    state: "",
+    interact:""
   };
   const [user, setUser] = useState(cleanSlate);
 
@@ -33,7 +33,7 @@ const Register = () => {
         userName: user.userName,
         password: user.password,
         city: user.city,
-        state: user.state,
+        interact: user.interact
       };
       console.log(newUser);
 
@@ -98,24 +98,23 @@ const Register = () => {
           value={user.passwordAgain}
           onChange={handleChange}
         />
+       <br />
+        <label htmlFor="City">City, State:</label>
+        <select type="text" id="city" name='city' onChange={handleChange} value={user.city}>
+          <option placeholder=""></option>
+          <option value="chicago">Chicago, IL</option>
+          <option value="dallas">Dallas, TX</option>
+          <option value="kansascity">Kansas City, MO</option>
+          <option value="orlando">Orlando, FL</option>
+        </select>
         <br />
-        <label>City:</label>
-        <input
-          type="text"
-          name="city"
-          value={user.city}
-          required
-          onChange={handleChange}
-        />
-        <br />
-        <label>State:</label>
-        <input
-          type="text"
-          name="state"
-          value={user.state}
-          required
-          onChange={handleChange}
-        />
+        <label htmlFor="intereact">Select your perfered way to interect:</label>
+        <select type="text" id="interact" name='interact' onChange={handleChange} value={user.interact}>
+          <option placeholder=""></option>
+          <option value="online">Online</option>
+          <option value="hybrid">Online &amp; In Person</option>
+          <option value="inPerson">In Person</option>
+        </select>
         <br />
         <button type="submit">REGISTER USER</button>
       </form>

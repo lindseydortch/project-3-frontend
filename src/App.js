@@ -18,6 +18,8 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Profile from "./components/auth/Profile";
 
+import './App.css'
+
 export const UserContext = createContext();
 
 function App() {

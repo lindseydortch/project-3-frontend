@@ -1,38 +1,128 @@
-.App {
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Roboto", san-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.u-margin-top-25 {
+  margin-top: 3rem;
+}
+
+.btn {
+  border: none;
+  padding: 2rem;
+  border-radius: 50rem;
+  width: 100%;
+}
+.btnMistyRose {
+  background-color: #FFE3E0;
+  color: #EF6351;
+}
+
+.header {
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: #EF6351;
+}
+
+.logo {
+  display: inline-block;
+  font-family: "Style Script", cursive;
+  width: 50%;
+}
+.logo-link {
+  color: #FFE3E0;
+  font-size: 4rem;
+  letter-spacing: 0.1rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 50%;
+}
+.navbar_list {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.navbar_item {
+  color: #FFE3E0;
+  font-size: 2rem;
+}
+.navbar_item:not(:last-child) {
+  margin-right: 4rem;
+}
+
+.loginPage {
+  height: 90vh;
+  display: flex;
+}
+.loginPage h3 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #FFE3E0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.login_form {
+  width: 50%;
+  padding: 8rem;
+  background-color: #EF6351;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.login__image {
+  width: 50%;
+  background-image: linear-gradient(rgba(255, 227, 224, 0.6), rgba(255, 227, 224, 0.6)), url("./assets/login-photo.jpeg");
+  background-position: center;
+  background-size: cover;
 }
 
-.App-link {
-  color: #61dafb;
+.form-group {
+  width: 100%;
+}
+.form-group label {
+  display: block;
+  margin: 1.5rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: #FFE3E0;
+}
+.form-group input {
+  width: 100%;
+  display: block;
+  padding: 1.5rem;
+  border-radius: 50rem;
+  border: none;
+  font-size: 1.4rem;
+  color: #EF6351;
+  letter-spacing: 0.1rem;
+}
+.form-group input::placeholder {
+  font-size: inherit;
+  color: inherit;
+  font-family: inherit;
+  letter-spacing: 0.1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*# sourceMappingURL=App.css.map */

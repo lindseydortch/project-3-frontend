@@ -1,0 +1,39 @@
+//==================================================================
+// VARIABLES
+//==================================================================
+
+// COLORS 
+$fire-opal: #EF6351;
+$salmon: #F38375;
+$vivid-tangerine: #F7A399;
+$spanish-pink: #FBC3BC;
+$misty-rose: #FFE3E0;
+
+// FONTS 
+$logo-font: 'Style Script', cursive;
+$display-font: 'Roboto', san-serif;
+
+//==================================================================
+// BASE STYLES 
+//==================================================================
+*, 
+*::before, 
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: $display-font;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
