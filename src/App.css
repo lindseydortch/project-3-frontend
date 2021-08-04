@@ -150,6 +150,29 @@ a {
   border: none;
   border-radius: 50rem;
 }
+.form-group textarea {
+  margin: 1rem;
+  width: 100%;
+  border: 0;
+  border-radius: 0.5rem;
+  background-color: #FFE3E0;
+  color: #EF6351;
+  padding: 2rem;
+  font-size: 1.4rem;
+}
+.form-group textarea::placeholder {
+  font-family: Roboto;
+  color: #EF6351;
+  text-transform: uppercase;
+}
+.form-group .checkbox {
+  display: inline-block;
+  border: 0;
+  padding: 2rem;
+}
+.form-group.checkboxLabel {
+  display: inline-block !important;
+}
 
 .register {
   height: 90vh;
@@ -174,6 +197,25 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.profile {
+  min-height: 90vh;
+  background-color: #F38375;
+  padding: 6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.profile h1 {
+  font-size: 3rem;
+  color: #FFE3E0;
+  margin-bottom: 2rem;
+  text-align: center;
+  display: block;
+}
+.profile h4 {
+  font-size: 2rem;
+  color: #FBC3BC;
 }
 
 .city-directory {
@@ -226,10 +268,10 @@ a {
 }
 .cityHomepage .addEvent {
   position: absolute;
-  width: 10%;
   text-align: center;
   top: 3rem;
   right: 5rem;
+  width: 10%;
 }
 
 .events {
@@ -290,6 +332,102 @@ a {
   justify-content: center;
   align-items: center;
   background-color: #F38375;
+}
+
+.eventUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F38375;
+}
+
+.addEventSection {
+  min-height: 90vh;
+  background-color: #EF6351;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 8rem;
+}
+.addEventSection h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #FFE3E0;
+  margin-bottom: 2rem;
+}
+
+.formAddEvent {
+  width: 80%;
+}
+
+.updateEventSection {
+  min-height: 90vh;
+  background-color: #EF6351;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 8rem;
+}
+.updateEventSection h1 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: #FFE3E0;
+  margin-bottom: 2rem;
+}
+
+.formUpdateEvent {
+  width: 80%;
+}
+
+.resources {
+  background-color: #FFE3E0;
+  padding: 8rem;
+  width: 100%;
+  min-height: 90vh;
+}
+.resources .detailsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.resources .we-back-details {
+  font-size: 4rem;
+  text-transform: uppercase;
+  width: 50%;
+  text-align: center;
+  display: block;
+  color: #EF6351;
+  font-weight: bolder;
+  margin: 8rem 0;
+}
+.resources h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #F38375;
+}
+.resources h3 {
+  text-align: center;
+  font-size: 2rem;
+  color: #F38375;
+  margin: 1rem;
+}
+.resources ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.resources li {
+  padding: 2rem;
+  background-color: #EF6351;
+  border-radius: 5rem;
+  color: #FFE3E0;
+  font-size: 1.6rem;
+  cursor: pointer;
+  margin-right: 2rem;
 }
 
 /*# sourceMappingURL=App.css.map */

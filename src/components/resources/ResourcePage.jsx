@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 
 const ResourcePage = () => {
     return (
-        <div>
+        <section className="resources">
+            <div className="detailsContainer">
+            <p className="we-back-details">Welcome to We Back(ish) a place for you to get back into the world or stay virtual post-pandemic. In order to access events, you must login or create an account.</p>
+
+            </div>
             <h1>COVID RESOURCES</h1>
             <div>
                 <h3>Vaccine Sites</h3>
@@ -38,7 +42,7 @@ const ResourcePage = () => {
                     <Link to={{ pathname: "https://www.healthline.com/health/mental-health/types-of-meditation"}} target="_blank" ><li>9 Types of Meditation (healthline)</li></Link>
                     <Link to={{ pathname: "https://www.webmd.com/mental-health/features/ways-to-reduce-anxiety"}} target="_blank" ><li>How to Stop Feeling Anxious Right Now (WedMD)</li></Link>
                 </ul>
-        </div>
+        </section>
     )
 }
 

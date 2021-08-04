@@ -1,0 +1,20 @@
+.profile {
+  min-height: 90vh;
+  background-color: $salmon;
+  padding: 6rem;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+
+  & h1 {
+    font-size: 3rem;
+    color: $misty-rose;
+    margin-bottom: 2rem;
+    text-align: center;
+    display: block;
+  }
+
+  & h4 {
+    font-size: 2rem;
+    color: $spanish-pink;
+  }
+}

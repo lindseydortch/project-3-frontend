@@ -6,10 +6,10 @@
 
   & .addEvent {
     position: absolute;
-    width: 10%;
     text-align: center;
     top: 3rem;
     right: 5rem;
+    width: 10%;
   }
 }
 
@@ -75,6 +75,13 @@
 
 .eventSingle {
   min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $salmon;
+}
+
+.eventUser {
   display: flex;
   justify-content: center;
   align-items: center;

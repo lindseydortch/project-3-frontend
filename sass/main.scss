@@ -6,6 +6,11 @@
 
 @import "login/login";
 @import "login/register";
+@import "login/profile";
 
 @import "events/cityDirectory";
 @import "events/cityHomepage";
+@import "events/addEvent";
+@import "events/updateEvent";
+
+@import "resources/resources";

@@ -69,22 +69,24 @@ let history = useHistory();
       .catch((err) => console.log(err.data));
   };
   return (
-    <div>
+    <section className="addEventSection">
     <h1>Add Event</h1>
-      <div className="form">
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form formAddEvent" onSubmit={handleSubmit}>
+          <div className="form-group">
           <label htmlFor="name">Event Name:</label>
           <input
             type="text"
             id="name"
             name="name"
-            placeholder="Event Title"
+            placeholder="Event Name"
             onChange={handleChange}
             value={eventForm.name}
           />
-          <br/>
+          </div>
+          <div className="form-group">
           <label htmlFor="addedBy">Hosted by:  {userData.user.userName}</label>
-          <br/>
+          </div>
+          <div className="form-group">
           <label htmlFor="type">Event Type:</label>
           <select
             type="text"
@@ -100,10 +102,14 @@ let history = useHistory();
             <option value="Movies">Movies</option>
             <option value="Music">Music</option>
           </select>
-          <br/>
+
+          </div>
+          <div className="form-group">
           <label htmlFor="date">Date/Time:</label>
           <input type="datetime-local" id="date" name="date" onChange={handleChange} value={eventForm.date} />
-         <br/>
+
+          </div>
+         <div className="form-group">
           <label htmlFor="City">City:</label>
           <select
             type="text"
@@ -118,7 +124,9 @@ let history = useHistory();
             <option value="kansascity">Kansas City, MO</option>
             <option value="orlando">Orlando, FL</option>
           </select>
-          <br/>
+
+         </div>
+          <div className="form-group">
           <label htmlFor="interact">Level of Interaction:</label>
           <select
             type="text"
@@ -132,7 +140,9 @@ let history = useHistory();
             <option value="hybrid">Online &amp; In Person</option>
             <option value="inPerson">In Person</option>
           </select>
-          <br/>
+          </div>
+          
+          <div className="form-group">
           <label htmlFor="socialScale">Sociability Scale:</label>
           <select
             type="text"
@@ -146,30 +156,36 @@ let history = useHistory();
             <option value="two">Little Bit 'o Minglin</option>
             <option value="three">Pants Off Dance Off</option>
           </select>
-          <br/>
+
+          </div>
+          <div className="form-group">
           <label htmlFor="cost">Event Cost:</label>
           <input
             type="number"
             id="cost"
             name="cost"
-            placeholder="Event Cost:"
+            placeholder="Event Cost"
             onChange={handleChange}
             value={eventForm.cost}
           />
-          <br/>
+
+          </div>
+          <div className="form-group">
           <label htmlFor="details">Description:</label>
-          <br/>
           <textarea
             type="text"
             id="details"
             name="details"
             cols="30"
             rows="10"
-            placeholder="click here to type message"
+            placeholder="Add your event description here"
             onChange={handleChange}
             value={eventForm.details}
           ></textarea>
-          <label htmlFor="attending">Attending:</label>
+
+          </div>
+          <div className="form-group">
+          <label htmlFor="attending" classname="checkboxLabel">Attending:</label>
           <input
             type="checkbox"
             id="attending"
@@ -177,11 +193,15 @@ let history = useHistory();
             placeholder=""
             onChange={handleChange}
             value="true"
+            className="checkbox"
           />
-          <button type="submit">ADD EVENT</button>
+          </div>
+          <div className="form-group">
+          <button type="submit" className="btn btnMistyRose u-margin-top-25">ADD EVENT</button>
+
+          </div>
         </form>
-      </div>
-    </div>
+      </section>
   );
 };
 

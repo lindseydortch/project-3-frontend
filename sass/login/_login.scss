@@ -68,5 +68,32 @@
       border: none;
       border-radius: 50rem;
     }
+
+    & textarea {
+      margin: 1rem;
+      width: 100%;
+      border: 0;
+      border-radius: .5rem;
+      background-color: $misty-rose;
+      color: $fire-opal;
+      padding: 2rem;
+      font-size: 1.4rem;
+
+      &::placeholder {
+        font-family: Roboto;
+        color: $fire-opal;
+        text-transform: uppercase;
+      }
+    }
+
+    & .checkbox {
+      display: inline-block;
+      border: 0;
+      padding: 2rem;
+    }
+
+    &.checkboxLabel {
+      display: inline-block !important;
+    }
   }
 }

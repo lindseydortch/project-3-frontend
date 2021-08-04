@@ -18,6 +18,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Profile from "./components/auth/Profile";
 
+
 import './App.css'
 
 export const UserContext = createContext();
@@ -70,7 +71,7 @@ function App() {
     <div>
       <UserContext.Provider value={{ userData, setUserData }}>
         <Header />
-        
+        <Route exact path="" component={ResourcePage} />
         <Route exact path="/events" component={CityDirectory} />
         <Route
           exact

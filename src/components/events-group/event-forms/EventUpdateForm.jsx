@@ -65,22 +65,27 @@ const EventUpdateForm = ({ match }) => {
   };
 
   return (
-    <div>
+    <section className="updateEventSection">
       <h1>Update Event</h1>
-      <div className="form">
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form formUpdateEvent" onSubmit={handleSubmit}>
+          <div className="form-group">
           <label htmlFor="name">Event Name:</label>
           <input
             type="text"
             id="name"
             name="name"
-            placeholder="Event Title"
+            placeholder="Event Name"
             onChange={handleChange}
             value={updateForm.name}
           />
-          <br />
+
+          </div>
+          <div className="form-group">
           <label htmlFor="addedBy">Hosted by: {updateForm.addedBy}</label>
-          <br />
+
+          </div>
+          <div className="form-group">
+
           <label htmlFor="type">Event Type:</label>
           <select
             type="text"
@@ -96,7 +101,9 @@ const EventUpdateForm = ({ match }) => {
             <option value="Movies">Movies</option>
             <option value="Music">Music</option>
           </select>
-          <br />
+          <div className="form-group">
+
+          </div>
           <label htmlFor="date">Date/Time:</label>
           <input
             type="datetime-local"
@@ -105,7 +112,9 @@ const EventUpdateForm = ({ match }) => {
             onChange={handleChange}
             value={updateForm.date}
           />
-          <br />
+          </div>
+          <div className="form-group">
+
           <label htmlFor="City">City:</label>
           <select
             type="text"
@@ -120,7 +129,8 @@ const EventUpdateForm = ({ match }) => {
             <option value="kansascity">Kansas City, MO</option>
             <option value="orlando">Orlando, FL</option>
           </select>
-          <br />
+          </div>
+          <div className="form-group">
           <label htmlFor="interact">Level of Interaction:</label>
           <select
             type="text"
@@ -134,7 +144,9 @@ const EventUpdateForm = ({ match }) => {
             <option value="hybrid">Online &amp; In Person</option>
             <option value="inPerson">In Person</option>
           </select>
-          <br />
+
+          </div>
+          <div className="form-group">
           <label htmlFor="socialScale">Sociability Scale:</label>
           <select
             type="text"
@@ -148,7 +160,9 @@ const EventUpdateForm = ({ match }) => {
             <option value="two">Little Bit 'o Minglin</option>
             <option value="three">Pants Off Dance Off</option>
           </select>
-          <br />
+
+          </div>
+          <div className="form-group">
           <label htmlFor="cost">Event Cost:</label>
           <input
             type="number"
@@ -158,9 +172,10 @@ const EventUpdateForm = ({ match }) => {
             onChange={handleChange}
             value={updateForm.cost}
           />
-          <br />
+
+          </div>
+          <div className="form-group">
           <label htmlFor="details">Description:</label>
-          <br />
           <textarea
             type="text"
             id="details"
@@ -171,6 +186,9 @@ const EventUpdateForm = ({ match }) => {
             onChange={handleChange}
             value={updateForm.details}
           ></textarea>
+
+          </div>
+          <div className="form-group">
           <label htmlFor="attending">Attending:</label>
           <input
             type="checkbox"
@@ -180,10 +198,14 @@ const EventUpdateForm = ({ match }) => {
             onChange={handleChange}
             value="true"
           />
-          <button type="submit">UPDATE EVENT</button>
+
+          </div>
+          <div className="form-group">
+          <button type="submit" className="btn btnMistyRose u-margin-top-25">UPDATE EVENT</button>
+
+          </div>
         </form>
-      </div>
-    </div>
+    </section>
   );
 };
 

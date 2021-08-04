@@ -40,7 +40,6 @@ function CityHomePage({ match }) {
   console.log(cityEvent);
   return (
 
-    <div>
 //       <section>
 //         <Link to='/eventadd'> Add Event </Link>
 //         {cityEvent.map((event) => (
@@ -65,14 +64,14 @@ function CityHomePage({ match }) {
         <div key={event.id} className="event">
           <h2 className="event_heading">{event.name}</h2>
           
-          <h2 className="event_host">Hosted By:{event.addedBy}</h2>
+          <h2 className="event_host">Hosted By: {event.addedBy}</h2>
           {
-            event.inPerson ? <h3 className="event_social">In Person</h3> : <h3 className="event_social">Online</h3>
+            event.interact === 'online' ? <h3 className="event_social">Online</h3> : <h3 className="event_social">In Person</h3>
           }
-          <h2 className="event_type">Type of Event:{event.type}</h2>
-          <h3 className="event_city">City:{event.city}</h3>
+          <h2 className="event_type">Type of Event: {event.type}</h2>
+          <h3 className="event_city">City: {event.city}</h3>
           {/* <h3>State:{event.state}</h3> */}
-          <h3 className="event_date">Event Date:{event.date}</h3>
+          <h3 className="event_date">Event Date: {event.date}</h3>
           {/* <h3>Online:{event.online.toString()}</h3>
           <h3>In Person:{event.inPerson.toString()}</h3> */}
           
@@ -85,7 +84,7 @@ function CityHomePage({ match }) {
       ))}
       </div>
     </section>
-  );
+)
 }
 
 export default CityHomePage;

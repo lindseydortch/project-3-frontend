@@ -43,30 +43,40 @@ console.log(userData.user.userName);
 
     console.log(userData.user);
     return (
-        <div>
+        <section className="profile">
             <h1>User Profile </h1>
-            <h4><b>User ID:</b> {userData.user.id}</h4>
+            {/* <h4><b>User ID:</b> {userData.user.id}</h4> */}
             <h4><b>Username:</b> {userData.user.userName}</h4>
             <h4><b>Current City:</b> {userData.user.city}</h4>
             <h4><b>Interaction Level:</b> {userData.user.interact}</h4>
             <h4><b>Date Registered:</b> {userData.user.date}</h4>
-        <section>
-            <h3>Events added by {userData.user.userName} </h3>
+      <div className="userEventContainer">
+
+      
+            <h1 className="u-margin-top-25">Events added by {userData.user.userName} </h1>
+<div className="eventUser">
+
+
             {userEvents.map((event) => (
-          <div key={event.id}>
-          <h2>Event:{event.name}</h2>
-          <h2>Host:{event.addedBy}</h2>
-          <h2>Type:{event.type}</h2>
-          <h3>City:{event.city}</h3>
-          <h3>Event Date:{event.date}</h3>
-          <h3>Cost:{event.cost}</h3>
-          <Link to={"/event/" + event._id}>View Event</Link>
+          <div key={event.id} className="event">
+          <h2 className="event_heading">Event:{event.name}</h2>
+          <h2 className="event_host">Host:{event.addedBy}</h2>
+          {
+        event.inPerson ? <h3 className="event_social">In Person</h3> : <h3 className="event_social">Online</h3>
+      }
+          <h2 className="event_type">Type:{event.type}</h2>
+          <h3 className="event_city">City:{event.city}</h3>
+          <h3 className="event_date">Event Date:{event.date}</h3>
+          <h3 className="event_cost">${event.cost}</h3>
+          <p className="event_details">{event.details}</p>
+          <Link to={"/event/" + event._id} className="btn btnFireOpal">View Event</Link>
 
           </div>
         ))}
-      </section>
+      </div>
+      </div>
         
-        </div>
+        </section>
     )
 }
 
