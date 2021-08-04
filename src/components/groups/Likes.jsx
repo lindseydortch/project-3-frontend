@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 const Likes = ({post}) => {
 
-  const [l, setLikes] = useState(post.likes)
+  const [l, setLikes] = useState(0)
   // console.log(l)
 
   const addLikes = (_id, likes, message) => {
@@ -39,9 +39,12 @@ const Likes = ({post}) => {
 
   return (
     <div>
+      <p className="likeCount">
+
       Likes: {l}
-      <button className="btn" onClick={() => addLikes(l)} >+</button>
-      <button className="btn" onClick={() => unLike()}>-</button>
+      </p>
+      <button className="btnLike add" onClick={() => addLikes(l)} >+</button>
+      <button className="btnLike subtract" onClick={() => unLike()}>-</button>
     </div>
   )
 }

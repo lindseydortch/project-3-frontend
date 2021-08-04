@@ -10,7 +10,7 @@ const AddMessage = ({messages, setMessages}) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log(form)
-        fetch(`http://localhost:8000/group`, {
+        fetch(`http://localhost:4000/group`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

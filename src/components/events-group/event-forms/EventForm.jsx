@@ -2,16 +2,14 @@ import React, { useState, useContext } from "react";
 import {UserContext} from "../../../App";
 import axios from "axios";
 // possibly remove because of differt methods
-import DateTimePicker from "react-datetime-picker";
+// import DateTimePicker from "react-datetime-picker";
 import { useHistory } from "react-router-dom";
-// import { Redirect } from "react-router";
 
 
 const EventForm = (props) => {
   const { userData, setUserData } = useContext(UserContext);
   console.log(userData)
 
-console.log(props);
 let history = useHistory();
 
   const blankForm = {
@@ -19,66 +17,81 @@ let history = useHistory();
     addedBy: "",
     type: "",
     city: "",
-    state:"",
     date: "",
-    online: "",
-    inPerson: "",
+    interact:"",
+    socialScale: "",
     cost: "",
-    socialComfortScale: "",
-    description: "",
+    details: "",
     attending: [],
   };
 
   const [eventForm, setEventForm] = useState(blankForm);
 
-  // going to implment std html date method possibly remove this
-  const [date, setDate] = useState(new Date());
+  // const handleChange = (event) => {
+  //   setEventForm({ ...eventForm, [event.target.id]: event.target.value });
+  // };
 
-  const handleChange = (event) => {
-    setEventForm({ ...eventForm, [event.target.id]: event.target.value });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEventForm((oldData) => {
+      return {
+        ...oldData,
+        [name]: value,
+      };
+    });
   };
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const url = "http://localhost:4000/event/add";
+    console.log(eventForm);
     axios
-    .post(url, { ...eventForm, dateAndTime: date })
+    .post(url, { ...eventForm, addedBy: userData.user.userName })
     .then((res) => {
-        history.push(`/event/${res.data._id}`);
-        // console.log(eventForm.location);
-        console.log(res.data);
-        // return <Redirect to={`/events/${eventForm.location}`} />
-        // setEventForm(blankForm);
-        
+      // console.log(eventForm.location);
+      console.log(res.data);
+      history.push(`/event/${res.data._id}`);
+      setEventForm({
+        name: "",
+        addedBy: "",
+        type: "",
+        city: "",
+        date: "",
+        interact:"",
+        socialScale: "",
+        cost: "",
+        details: "",
+        attending: [],
+      });
+      console.log(res.data._id);
       })
       .catch((err) => console.log(err.data));
   };
   return (
-    <div>
+    <section className="addEventSection">
     <h1>Add Event</h1>
-      <div className="form">
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="form formAddEvent" onSubmit={handleSubmit}>
+          <div className="form-group">
           <label htmlFor="name">Event Name:</label>
           <input
             type="text"
             id="name"
-            placeholder="Event Title"
+            name="name"
+            placeholder="Event Name"
             onChange={handleChange}
             value={eventForm.name}
           />
-          <br/>
-          <label htmlFor="addedBy">Host:</label>
-          <input
-            type="text"
-            id="addedBy"
-            placeholder={userData.user.userName}
-            value={userData.user.userName}
-          />
-          <br/>
+          </div>
+          <div className="form-group">
+          <label htmlFor="addedBy">Hosted by:  {userData.user.userName}</label>
+          </div>
+          <div className="form-group">
           <label htmlFor="type">Event Type:</label>
           <select
             type="text"
             id="type"
+            name='type'
             onChange={handleChange}
             value={eventForm.type}
           >
@@ -89,96 +102,106 @@ let history = useHistory();
             <option value="Movies">Movies</option>
             <option value="Music">Music</option>
           </select>
-          <br/>
+
+          </div>
+          <div className="form-group">
+          <label htmlFor="date">Date/Time:</label>
+          <input type="datetime-local" id="date" name="date" onChange={handleChange} value={eventForm.date} />
+
+          </div>
+         <div className="form-group">
           <label htmlFor="City">City:</label>
           <select
             type="text"
             id="city"
+            name="city"
             onChange={handleChange}
             value={eventForm.city}
           >
             <option placeholder="Choose Your City"></option>
-            <option value="orlando">Orlando</option>
-            <option value="dallas">Dallas</option>
-            <option value="kansascity">Kansas City</option>
-            <option value="chicago">Chicago</option>
+            <option value="chicago">Chicago, IL</option>
+            <option value="dallas">Dallas, TX</option>
+            <option value="kansascity">Kansas City, MO</option>
+            <option value="orlando">Orlando, FL</option>
           </select>
-          <br/>
-          <label htmlFor="date">Date/Time:</label>
-          <input type="datetime-local" id="date" onChange={handleChange} value={eventForm.date} />
-          <br/>
-          <label htmlFor="online">Online:</label>
-          <input
-            type="checkbox"
-            id="online"
-            placeholder="True or False"
+
+         </div>
+          <div className="form-group">
+          <label htmlFor="interact">Level of Interaction:</label>
+          <select
+            type="text"
+            id="interact"
+            name="interact"
             onChange={handleChange}
-            value={eventForm.online}
-          />
-          <br/>
-          <label htmlFor="inPerson">In Person:</label>
-          <input
-            type="checkbox"
-            id="inPerson"
-            placeholder="True or False"
+            value={eventForm.interact}
+          >
+            <option placeholder="Choose Your City"></option>
+            <option value="online">Online</option>
+            <option value="hybrid">Online &amp; In Person</option>
+            <option value="inPerson">In Person</option>
+          </select>
+          </div>
+          
+          <div className="form-group">
+          <label htmlFor="socialScale">Sociability Scale:</label>
+          <select
+            type="text"
+            id="socialScale"
+            name="socialScale"
             onChange={handleChange}
-            value={eventForm.inPerson}
-          />
-          <label htmlFor="socialComfortScale">Sociability Scale:</label>
-          <input
-            type="checkbox"
-            id="socialComfortScale"
-            placeholder="1"
-            onChange={handleChange}
-            value="1 emojie"
-          />
-          <input
-            type="checkbox"
-            id="socialComfortScale"
-            placeholder="2"
-            onChange={handleChange}
-            value="2 emoji"
-          />
-          <input
-            type="checkbox"
-            id="socialComfortScale"
-            placeholder="3"
-            onChange={handleChange}
-            value="3 emoji"
-          />
-          <br/>
-         <label htmlFor="cost">Event Cost:</label>
+            value={eventForm.socialScale}
+          >
+            <option placeholder="Choose Your Level"></option>
+            <option value="one">Minimal Interaction</option>
+            <option value="two">Little Bit 'o Minglin</option>
+            <option value="three">Pants Off Dance Off</option>
+          </select>
+
+          </div>
+          <div className="form-group">
+          <label htmlFor="cost">Event Cost:</label>
           <input
             type="number"
             id="cost"
-            placeholder="Event Cost:"
+            name="cost"
+            placeholder="Event Cost"
             onChange={handleChange}
             value={eventForm.cost}
           />
-          <br/>
+
+          </div>
+          <div className="form-group">
           <label htmlFor="details">Description:</label>
-          <br/>
           <textarea
             type="text"
             id="details"
+            name="details"
             cols="30"
             rows="10"
-            placeholder="click here to type message"
+            placeholder="Add your event description here"
             onChange={handleChange}
             value={eventForm.details}
           ></textarea>
-          <label htmlFor="attending">Attending:</label>
+
+          </div>
+          <div className="form-group">
+          <label htmlFor="attending" classname="checkboxLabel">Attending:</label>
           <input
             type="checkbox"
             id="attending"
+            name="attending"
             placeholder=""
             onChange={handleChange}
             value="true"
+            className="checkbox"
           />
-          <button type="submit">ADD EVENT</button>
+          </div>
+          <div className="form-group">
+          <button type="submit" className="btn btnMistyRose u-margin-top-25">ADD EVENT</button>
+
+          </div>
         </form>
-      </div>
-    </div>
+      </section>
   );
 };
 

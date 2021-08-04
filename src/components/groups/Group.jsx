@@ -4,7 +4,7 @@ import UpdateMessage from './UpdateMessage'
 import DeleteMessage from './DeleteMessage'
 import Likes from './Likes'
 
-const Group = () => {
+const Group = ({ match }) => {
 
     const [messages, setMessages] = useState()
 
@@ -28,23 +28,22 @@ const Group = () => {
     }
 
     return (
-        <div>
-            <h1>Single Group Component</h1>
-            <p>On this page, users will be able to see a specific group, see, add, update and delete messages</p>
+        <section className="singleGroup">
+            <h1>{match.params.interest}</h1>
             { messages ?
                 messages.map((post) => (
                     <div key={post._id} className="post">
                         <p>{post.message}</p>
                         <UpdateMessage messages={messages} post={post} setMessages={setMessages} />
                         <Likes post={post}/>
-                        <DeleteMessage post={post} deletePost={deletePost} />
+                        <DeleteMessage post={post} deletePost={deletePost}/>
                     </div>
                 )) 
                 : ``
             }
             <AddMessage messages={messages} setMessages={setMessages} />
             
-        </div>
+        </section>
     )
 }
 

@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-import DateTimePicker from 'react-datetime-picker'
-import { useHistory } from 'react-router-dom'
+import React, { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../../App";
+import axios from "axios";
+// import DateTimePicker from 'react-datetime-picker'
+import { useHistory } from "react-router-dom";
 
+const EventUpdateForm = ({ match }) => {
+  const { userData, setUserData } = useContext(UserContext);
 
-const EventUpdateForm = ({match}) => {
-    const history = useHistory()
-    
-    const [event, setEvent] = useState([]);
-    const [updateForm, setUpdateForm] = useState([]);
-    console.log(event);
+  const history = useHistory();
 
-useEffect(() => {
+  const [eventForm, setEventForm] = useState([]);
+  const [updateForm, setUpdateForm] = useState([]);
+  console.log(eventForm);
+
+  useEffect(() => {
     const id = match.params.id;
     const url = `http://localhost:4000/event/${id}`;
     console.log(url);
@@ -20,8 +22,8 @@ useEffect(() => {
       .then((res) => {
         console.log(res);
         const data = res.data;
-        setEvent(data);
-        setUpdateForm(data)
+        setEventForm(data);
+        setUpdateForm(data);
         console.log("data has been received");
       })
       .catch(() => {
@@ -29,76 +31,182 @@ useEffect(() => {
       });
   }, []);
 
+  console.log(updateForm);
+  // const [date, setDate] = useState(new Date())
 
-console.log(updateForm);
-const [date, setDate] = useState(new Date())
-const handleChange = (event) => {
-    setUpdateForm({ ...updateForm, [event.target.id]: event.target.value })
-}
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUpdateForm((oldData) => {
+      return {
+        ...oldData,
+        [name]: value,
+      };
+    });
+  };
 
-const handleSubmit = (event) => {
+  // const handleChange = (event) => {
+  //     setUpdateForm({ ...updateForm, [event.target.id]: event.target.value })
+  // }
+
+  const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(updateForm)
-    const id = match.params.id
-    console.log(id)
-    const url = `http://localhost:4000/event/edit/${id}`
-    axios.put(url, {...updateForm, dateAndTime:date})
-    .then(res => {
-        console.log(res.data)
-        // setUpdateForm(preLoadedValues)            
-        history.push(`/event/${res.data._id}`)
-        })
-        .catch(err => console.log(err.data))
-    };
+    console.log(updateForm);
+    const id = match.params.id;
+    console.log(id);
+    const url = `http://localhost:4000/event/edit/${id}`;
+    axios
+      .put(url, { ...updateForm })
+      .then((res) => {
+        console.log(res.data);
+        // setUpdateForm(preLoadedValues)
+        history.push(`/event/${res.data._id}`);
+      })
+      .catch((err) => console.log(err.data));
+  };
 
+  return (
+    <section className="updateEventSection">
+      <h1>Update Event</h1>
+        <form className="form formUpdateEvent" onSubmit={handleSubmit}>
+          <div className="form-group">
+          <label htmlFor="name">Event Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Event Name"
+            onChange={handleChange}
+            value={updateForm.name}
+          />
 
+          </div>
+          <div className="form-group">
+          <label htmlFor="addedBy">Hosted by: {updateForm.addedBy}</label>
 
-    return (
-        <div>
-            <h1>Update Event</h1>
-            <div className="form">
-                <form className="form" onSubmit={handleSubmit}>
-                <label htmlFor="name">Event Name:</label>
-                <input type="text" id="name" onChange={handleChange} value={updateForm.name}/>
-                    <label htmlFor="name">Host:</label>
-                    <input type="text" id="user" onChange={handleChange} value={updateForm.user}/>
-                    <label htmlFor="type">Type:</label>
-                    <select type="text" id="type" onChange={handleChange} value={updateForm.type}>
-                            <option value="Sports and Fitness">Sports and Fitness</option>
-                            <option value="Games">Games</option>
-                            <option value="Fitness">Fitness</option>
-                            <option value="Health_Wellbeing">Health & WellBeing</option>
-                            <option value="Hobbies">Hobbies</option>
-                            <option value="Social_Gathering">Social Gathering</option>
-                    </select>
-                    <label htmlFor="location">Location:</label>
-                    <select type="text" id="location" onChange={handleChange} value={updateForm.location}>
-                            <option value="Orlando">Orlando</option>
-                            <option value="Dallas">Dallas</option>
-                            <option value="KansasCity">Kansas City</option>
-                            <option value="Chicago">Chicago</option> 
-                    </select> 
-                    <label htmlFor="datetime">Date/Time:</label>
-                    <DateTimePicker onChange={setDate} value={date} required />
-                
-                    <label htmlFor="online">Online:</label>
-                    <input type="checkbox" id="online" placeholder="" onChange={handleChange} value={updateForm.online}/>
-                    <label htmlFor="inPerson">In Person:</label>
-                    <input type="checkbox" id="inPerson" placeholder="" onChange={handleChange} value={updateForm.inPerson}/>
-                    <label htmlFor="socialComfortScale">Sociability Scale:</label>
-                    <input type="checkbox" id="socialComfortScale" placeholder="" onChange={handleChange} value="one emoji"/>
-                    <input type="checkbox" id="socialComfortScale" placeholder="" onChange={handleChange} value="5 emoji"/>
-                    <label htmlFor="details">Description:</label>
-                    <textarea type="text" id="details" cols="30" rows="10" placeholder="click here to type message" onChange={handleChange} value={updateForm.details}></textarea>
-                    <button type="submit">Update EVENT</button>
-                </form>
-                
+          </div>
+          <div className="form-group">
 
-            </div>
-        </div>
-        
-    )}
-                        
+          <label htmlFor="type">Event Type:</label>
+          <select
+            type="text"
+            id="type"
+            name="type"
+            onChange={handleChange}
+            value={updateForm.type}
+          >
+            <option placeholder=""></option>
+            <option value="Sports and Fitness">Sports and Fitness</option>
+            <option value="Games">Games</option>
+            <option value="Food">Food</option>
+            <option value="Movies">Movies</option>
+            <option value="Music">Music</option>
+          </select>
+          <div className="form-group">
 
+          </div>
+          <label htmlFor="date">Date/Time:</label>
+          <input
+            type="datetime-local"
+            id="date"
+            name="date"
+            onChange={handleChange}
+            value={updateForm.date}
+          />
+          </div>
+          <div className="form-group">
 
-export default EventUpdateForm
+          <label htmlFor="City">City:</label>
+          <select
+            type="text"
+            id="city"
+            name="city"
+            onChange={handleChange}
+            value={updateForm.city}
+          >
+            <option placeholder="Choose Your City"></option>
+            <option value="chicago">Chicago, IL</option>
+            <option value="dallas">Dallas, TX</option>
+            <option value="kansascity">Kansas City, MO</option>
+            <option value="orlando">Orlando, FL</option>
+          </select>
+          </div>
+          <div className="form-group">
+          <label htmlFor="interact">Level of Interaction:</label>
+          <select
+            type="text"
+            id="interact"
+            name="interact"
+            onChange={handleChange}
+            value={updateForm.interact}
+          >
+            <option placeholder="Choose Your City"></option>
+            <option value="online">Online</option>
+            <option value="hybrid">Online &amp; In Person</option>
+            <option value="inPerson">In Person</option>
+          </select>
+
+          </div>
+          <div className="form-group">
+          <label htmlFor="socialScale">Sociability Scale:</label>
+          <select
+            type="text"
+            id="socialScale"
+            name="socialScale"
+            onChange={handleChange}
+            value={updateForm.socialScale}
+          >
+            <option placeholder="Choose Your Level"></option>
+            <option value="one">Minimal Interaction</option>
+            <option value="two">Little Bit 'o Minglin</option>
+            <option value="three">Pants Off Dance Off</option>
+          </select>
+
+          </div>
+          <div className="form-group">
+          <label htmlFor="cost">Event Cost:</label>
+          <input
+            type="number"
+            id="cost"
+            name="cost"
+            placeholder="Event Cost:"
+            onChange={handleChange}
+            value={updateForm.cost}
+          />
+
+          </div>
+          <div className="form-group">
+          <label htmlFor="details">Description:</label>
+          <textarea
+            type="text"
+            id="details"
+            name="details"
+            cols="30"
+            rows="10"
+            placeholder="click here to type message"
+            onChange={handleChange}
+            value={updateForm.details}
+          ></textarea>
+
+          </div>
+          <div className="form-group">
+          <label htmlFor="attending">Attending:</label>
+          <input
+            type="checkbox"
+            id="attending"
+            name="attending"
+            placeholder=""
+            onChange={handleChange}
+            value="true"
+          />
+
+          </div>
+          <div className="form-group">
+          <button type="submit" className="btn btnMistyRose u-margin-top-25">UPDATE EVENT</button>
+
+          </div>
+        </form>
+    </section>
+  );
+};
+
+export default EventUpdateForm;

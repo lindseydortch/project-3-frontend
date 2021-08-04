@@ -60,31 +60,43 @@ function Login() {
 
 
   return (
-    <div>
-      <h1>Login Here</h1>
-      <form onSubmit={handleSubmit} >
-        <label>User Name:</label>
-        <input
-          type="text"
-          name="userName"
-          value={user.userName}
-          required
-          onChange={handleChange}
-        />
-        <br />
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={user.password}
-          onChange={handleChange}
-        />
-        <br />
-        <button type="submit">LOGIN</button>
+    <section className="loginPage">
+      <div className="login_form">
+
+      
+      <h3>Login Here</h3>
+      <form onSubmit={handleSubmit} className="form formLogin">
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            name="userName"
+            value={user.userName}
+            required
+            onChange={handleChange} placeholder="Username"
+          />
+        </div>
+        <div className="form-group">
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            value={user.password}
+            onChange={handleChange}
+            placeholder="Password"
+          />
+        </div>
+        <div className="form-group">
+          <button type="submit" className="btn btnMistyRose u-margin-top-25">LOGIN</button>
+        </div>
       </form>
       
       {errorMsg && <ErrorMessages msg={errorMsg} />}
-    </div>
+      </div>
+      <div className="login__image">
+        &nbsp;
+      </div>
+    </section>
   )
 }
 

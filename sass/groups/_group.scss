@@ -1,0 +1,18 @@
+.singleGroup {
+  padding: 6rem;
+  background-color: $fire-opal;
+
+  & h1 {
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    color: $misty-rose;
+  }
+}
+
+.likeCount {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: $salmon;
+  margin: 1.5rem 0;
+}
