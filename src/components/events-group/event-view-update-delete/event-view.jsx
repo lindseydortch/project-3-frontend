@@ -31,7 +31,19 @@ const EventView =  (props) => {
   }
   console.log(event);
   return (
+
+//     <div>
+//       <h2>Event:{event.name}</h2>
+//       <h2>Hosted by: {event.addedBy}</h2>
+//       <h2>Type:{event.type}</h2>
+//       <h3>City:{event.city}</h3>
+//       <h3>Event Date:{event.date}</h3>
+//       <h3>Interaction:{event.interact}</h3>
+//       <h3>Social Comfortablity:{event.socialScale}</h3>
+//       <h3>Cost:{event.cost}</h3>
+//       <p>Event Details:{event.details}</p>
     <section className="eventSingle">
+
 
     
     <div className="event">

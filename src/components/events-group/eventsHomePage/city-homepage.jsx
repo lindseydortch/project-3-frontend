@@ -39,9 +39,26 @@ function CityHomePage({ match }) {
   );
   console.log(cityEvent);
   return (
+
+    <div>
+//       <section>
+//         <Link to='/eventadd'> Add Event </Link>
+//         {cityEvent.map((event) => (
+//           <div key={event.id}>
+//             <h2>Event:{event.name}</h2>
+//             <h2>Host:{event.addedBy}</h2>
+//             <h2>Type:{event.type}</h2>
+//             <h3>City:{event.city}</h3>
+//             <h3>Event Date:{event.date}</h3>
+//             <h3>Interaction Level:{event.interact}</h3>
+//             <h3>Social Scale:{event.socialScale}</h3>
+//             <h3>Cost:{event.cost}</h3>
+//             <Link to={"/event/" + event._id}>View Event</Link>
+
     <section className="cityHomepage">
       <Link to='/eventadd' className="btn btnMistyRose addEvent"> Add Event </Link>
       <div className="events">
+
 
       
       {cityEvent.map((event) => (
