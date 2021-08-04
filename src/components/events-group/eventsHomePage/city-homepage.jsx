@@ -48,12 +48,10 @@ function CityHomePage({ match }) {
             <h2>Host:{event.addedBy}</h2>
             <h2>Type:{event.type}</h2>
             <h3>City:{event.city}</h3>
-            {/* <h3>State:{event.state}</h3> */}
             <h3>Event Date:{event.date}</h3>
-            <h3>Online:{event.online.toString()}</h3>
-            <h3>In Person:{event.inPerson.toString()}</h3>
+            <h3>Interaction Level:{event.interact}</h3>
+            <h3>Social Scale:{event.socialScale}</h3>
             <h3>Cost:{event.cost}</h3>
-            {/* <p>Event Details:{event.details}</p> */}
             <Link to={"/event/" + event._id}>View Event</Link>
 
           </div>
