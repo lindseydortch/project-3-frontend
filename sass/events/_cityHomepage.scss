@@ -1,0 +1,82 @@
+.cityHomepage {
+  min-height: 90vh;
+  padding: 10rem;
+  background-color: $fire-opal;
+  position: relative;
+
+  & .addEvent {
+    position: absolute;
+    width: 10%;
+    text-align: center;
+    top: 3rem;
+    right: 5rem;
+  }
+}
+
+.events {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.event {
+  width: 25%;
+  background-color: $misty-rose;
+  border-radius: .5rem;
+  padding: 4rem;
+  margin: 3rem;
+
+  &_heading {
+    font-size: 2rem;
+    color: $fire-opal;
+    margin-bottom: 1rem;
+  }
+
+  &_host {
+    font-size: 1.5rem;
+    color: $salmon;
+    margin-bottom: .2rem;
+  }
+
+  &_type, 
+  &_city,
+  &_date {
+    font-size: 1.3rem;
+    color: $salmon;
+    margin-bottom: .5rem;
+  }
+
+  &_cost {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    color: $fire-opal;
+    text-align: center;
+  }
+
+  &_social {
+    margin: 1rem 0;
+    background-color: $fire-opal;
+    border-radius: 5rem;
+    display: inline-block;
+    padding: 1rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: $misty-rose;
+  }
+
+  &_details {
+    font-size: 1.3rem;
+    color: $fire-opal;
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+}
+
+.eventSingle {
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $salmon;
+}

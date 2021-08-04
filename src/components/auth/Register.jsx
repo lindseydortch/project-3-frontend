@@ -71,18 +71,26 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h1>Register Here</h1>
-      <form onSubmit={handleSubmit}>
-        <label>User Name:</label>
-        <input
-          type="text"
-          name="userName"
-          value={user.userName}
-          required
-          onChange={handleChange}
-        />
-        <br />
+    <section className="register">
+      <div className="register_image">
+        &nbsp;
+      </div>
+      <div className="register_form">
+
+      
+      <h3>Register Below</h3>
+      <form onSubmit={handleSubmit} className="form">
+        <div className="form-group">
+          <label>Username</label>
+          <input
+            type="text"
+            name="userName"
+            value={user.userName}
+            required
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
         <label>Password:</label>
         <input
           type="password"
@@ -90,37 +98,43 @@ const Register = () => {
           value={user.password}
           onChange={handleChange}
         />
-        <br />
-        <label>Password Again:</label>
+        </div>
+      <div className="form-group">
+        <label>Confirm Password</label>
         <input
           type="password"
           name="passwordAgain"
           value={user.passwordAgain}
           onChange={handleChange}
         />
-       <br />
+      </div>
+      <div className="form-group">
         <label htmlFor="City">City, State:</label>
         <select type="text" id="city" name='city' onChange={handleChange} value={user.city}>
-          <option placeholder=""></option>
+          <option></option>
           <option value="chicago">Chicago, IL</option>
           <option value="dallas">Dallas, TX</option>
           <option value="kansascity">Kansas City, MO</option>
           <option value="orlando">Orlando, FL</option>
         </select>
-        <br />
-        <label htmlFor="intereact">Select your perfered way to interect:</label>
+      </div>
+      <div className="form-group">
+        <label htmlFor="intereact">Select your perfered way to interect with people:</label>
         <select type="text" id="interact" name='interact' onChange={handleChange} value={user.interact}>
-          <option placeholder=""></option>
+          <option placeholder="Choose an Option"></option>
           <option value="online">Online</option>
           <option value="hybrid">Online &amp; In Person</option>
           <option value="inPerson">In Person</option>
         </select>
-        <br />
-        <button type="submit">REGISTER USER</button>
+      </div>
+      <div className="form-group">
+        <button type="submit" className="btn btnMistyRose u-margin-top-25">REGISTER USER</button>
+      </div>
       </form>
 
       {errorMsg && <ErrorMessages msg={errorMsg} />}
-    </div>
+      </div>
+    </section>
   );
 };
 

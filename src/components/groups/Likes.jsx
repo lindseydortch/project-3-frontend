@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 const Likes = ({post}) => {
 
-  const [l, setLikes] = useState(post.likes)
+  const [l, setLikes] = useState(0)
   // console.log(l)
 
   const addLikes = (_id, likes, message) => {

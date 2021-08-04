@@ -1,0 +1,48 @@
+.city-directory {
+  padding: 4rem;
+  width: 100%;
+  background-color: $misty-rose;
+
+  &_list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card {
+    display: inline-block;
+    width: 35%;
+    border-radius: .5rem;
+    margin: 3rem;
+    border-radius: .5rem;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      height: 30rem;
+      object-position: center;
+      object-fit: cover;
+    }
+
+    & a {
+      padding: 4rem;
+      background-color: $fire-opal;
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+      margin-top: -2rem;
+      color: $misty-rose;
+      text-transform: uppercase;
+      font-size: 2rem;
+      transition: all .2s ease-in;
+  
+      &:hover {
+        opacity: .95;
+      }
+    }
+  }
+
+  
+}
