@@ -8,6 +8,18 @@
     text-transform: uppercase;
     color: $misty-rose;
   }
+
+  & p {
+    font-size: 2rem;
+    background-color: $misty-rose;
+    padding: 2rem;
+    border-radius: .5rem;
+    color: $fire-opal;
+  }
+}
+
+.post {
+  margin: 2rem 0;
 }
 
 .likeCount {
