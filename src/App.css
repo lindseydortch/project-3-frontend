@@ -452,6 +452,17 @@ a {
   text-transform: uppercase;
   color: #FFE3E0;
 }
+.singleGroup p {
+  font-size: 2rem;
+  background-color: #FFE3E0;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  color: #EF6351;
+}
+
+.post {
+  margin: 2rem 0;
+}
 
 .likeCount {
   font-size: 3rem;
